@@ -1,0 +1,196 @@
+
+
+%=================================
+% Colourblind-friendly colours
+%=================================
+
+
+% 6 Colour Attempt Feb 27, 2024
+
+
+\definecolor{lemmacolour}{RGB}{0, 0, 153} 
+
+
+\definecolor{propcolour}{RGB}{138, 10,0}
+
+\definecolor{definitioncolour}{RGB}{100, 100, 100}
+
+\definecolor{examplecolour}{RGB}{62,217,141}
+
+\definecolor{conjecturecolour}{RGB}{235, 160, 215}
+
+\definecolor{theoremcolour}{RGB}{255, 240, 0}
+
+
+
+%============================
+% 5 Colour Attempt
+%============================
+
+
+
+%\definecolor{corolcolour}{RGB}{0, 114, 178}
+
+
+%Compare this one and examplecolor on tritanopia
+%\definecolor{lemmacolour}{RGB}{0, 114, 178} 
+%
+%
+%\definecolor{propcolour}{rgb}{0.6, 0.0,0.0}
+%
+%
+%\definecolor{theoremcolour}{rgb}{1.0, 0.84, 0.0}
+%
+%
+%
+%
+%\definecolor{examplecolour}{RGB}{59,191,143}
+%
+%\definecolor{definitioncolour}{rgb}{0.75, 0.75, 0.75}
+
+
+
+%============================
+% Theorem Environments
+%============================
+
+
+\usepackage{}
+
+
+
+\newenvironment{proof-lemma}
+    {\begin{mdframed}[linewidth=3, linecolor=lemmacolour,topline=false,rightline=false,bottomline=false]
+\begin{proof}
+}{
+\end{proof}
+\end{mdframed}}
+
+
+\newenvironment{proof-prop}
+    {\begin{mdframed}[linewidth=3, linecolor=propcolour,topline=false,rightline=false,bottomline=false]
+\begin{proof}
+}{
+\end{proof}
+\end{mdframed}}
+
+
+\newenvironment{proof-theorem}
+    {\begin{mdframed}[linewidth=3, linecolor=theoremcolour,topline=false,rightline=false,bottomline=false]
+\begin{proof}
+}{
+\end{proof}
+\end{mdframed}}
+
+\newenvironment{proof-corol}
+    {\begin{mdframed}[linewidth=3, linecolor=lemmacolour,topline=false,rightline=false,bottomline=false]
+\begin{proof}
+}{
+\end{proof}
+\end{mdframed}}
+
+\newenvironment{defframe}
+    {\begin{mdframed}[linewidth=3, linecolor=definitioncolour,topline=false,rightline=false,bottomline=false]
+}{
+\end{mdframed}}
+
+\newenvironment{exampleframe}
+    {\begin{mdframed}[linewidth=3, linecolor=examplecolour,topline=false,rightline=false,bottomline=false]
+}{
+\end{mdframed}}
+
+\newenvironment{conjecframe}
+    {\begin{mdframed}[linewidth=3, linecolor=conjecturecolour,topline=false,rightline=false,bottomline=false]
+}{
+\end{mdframed}}
+
+
+
+%============================
+
+%\newtcbtheorem[number within=section]{theorem}{\color{black}Theorem}%
+%{colback=theoremcolour!5,colframe=theoremcolour,fonttitle=\bfseries}{th}
+
+
+
+
+
+%==========================================
+
+
+
+%==============================================
+% Theorems v.2
+%==============================================
+
+
+\newtcbtheorem[number within=section]{deff}{Definition}%
+{colback=definitioncolour!5, colframe=definitioncolour,fonttitle=\bfseries}{th}
+
+
+\newtcbtheorem[number within=section]{lemm}{Lemma}%
+{colback=lemmacolour!5,colframe=lemmacolour!95!black,fonttitle=\bfseries}{th}
+
+
+
+% Had to change this just for this presentation, so we didn't get prop 0.1, since there are no 'sections' in a beamer presentation.
+
+\newtcbtheorem{prop}{Proposition}%
+{colback=propcolour!5,colframe=propcolour,fonttitle=\bfseries}{th}
+
+
+
+\newtcbtheorem[number within=section]{corol}{Corollary}%
+{colback=corolcolour!5,colframe=corolcolour!95!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{exam}{Example}%
+{colback=examplecolour!5,colframe=examplecolour,{fonttitle=\bfseries \color{black}}}{th}
+
+
+
+\newtcbtheorem[number within=section]{conj}{Conjecture}%
+{colback=conjecturecolour!5,colframe=conjecturecolour,{fonttitle=\bfseries \color{black}}}{th}
+
+
+\newtcbtheorem[number within=section]{thm}{\color{black}Theorem}%
+{colback=theoremcolour!5,colframe=theoremcolour,{fonttitle=\bfseries \color{black}},
+label type=theorem}{thm}
+
+
+
+%==============================================
+% Theorems v.1
+%==============================================
+
+
+%\newtcbtheorem[number within=section]{definition}{Definition}%
+%{colback=definitioncolour!5,colframe=definitioncolour!50!black,fonttitle=\bfseries}{th}
+%
+%
+%\newtcbtheorem[number within=section]{lemma}{Lemma}%
+%{colback=lemmacolour!5,colframe=lemmacolour!95!black,fonttitle=\bfseries}{th}
+%
+%
+%\newtcbtheorem[number within=section]{prop}{Proposition}%
+%{colback=propcolour!5,colframe=propcolour,fonttitle=\bfseries}{th}
+%
+%
+%
+%\newtcbtheorem[number within=section]{corollary}{Corollary}%
+%{colback=corolcolour!5,colframe=corolcolour!95!black,fonttitle=\bfseries}{th}
+%
+%\newtcbtheorem[number within=section]{example}{Example}%
+%{colback=examplecolour!5,colframe=examplecolour!90!black,fonttitle=\bfseries}{th}
+%
+%
+%
+%\newtcbtheorem[number within=section]{conjecture}{Conjecture}%
+%{colback=conjecturecolour!5,colframe=conjecturecolour!90!black,fonttitle=\bfseries}{th}
+%
+%
+%\newtcbtheorem[number within=section]{theorem}{\color{black}Theorem}%
+%{colback=theoremcolour!5,colframe=theoremcolour,{fonttitle=\bfseries \color{black}},
+%label type=theorem}{thm}
+
+
+

@@ -1,0 +1,711 @@
+
+
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\usepackage{tikz-cd}
+\usepackage{xparse}
+\usepackage{adjustbox}
+
+
+
+\newcommand{\cat}[1]{\mathcal{#1}}
+
+
+
+\title{Categories Without Coherence}
+
+\author{Matt Alexander}
+\usetheme{queer}
+
+
+\newcommand{\newthought}[1]{\medskip\noindent\fbox{{#1}}}
+
+
+\input{definitions.tex}
+
+
+
+%\input{usepackage}
+
+
+
+\begin{document}
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+%===================
+% SLIDE 1
+%===================
+
+
+
+%===================
+% SLIDE 2
+%===================
+
+
+
+%===================
+% SLIDE 3
+%===================
+
+\begin{frame}
+
+
+\frametitle{Higher Morphism Shapes}
+%
+\begin{columns}[t]
+
+
+\column{0.5\textwidth}
+
+\begin{center}
+\newthought{Dimension 2:}
+
+\vphantom{a}
+
+\begin{tikzcd}[ampersand replacement=\&]
+A \arrow[r, bend left=50, ""{name=U, below}]
+\arrow[r, bend right=50, ""{name=D}]
+\& B
+\arrow[Rightarrow, from=U, to=D]
+\end{tikzcd}
+%
+
+\begin{tikzcd}[ampersand replacement=\&]
+A \ar[r] \ar[rd, ""{name=D}] \& B \ar[d] \ar[Rightarrow, to=D] \\
+\& C
+\end{tikzcd}
+%
+
+\begin{tikzcd}[ampersand replacement=\&]
+A \arrow[r, ""{name=U, below}] \arrow[d]
+\& B \arrow[d] \\
+C \arrow[r, ""{name=D}]
+\& D \arrow[Rightarrow, from=U, to=D]
+\end{tikzcd}
+
+
+\end{center}
+
+\column{0.5\textwidth}
+\begin{center}
+
+\newthought{Dimension 3: }
+
+\adjustbox{scale=0.8}{
+\begin{tikzcd}[ampersand replacement=\&]
+\& 3  \\
+\& 0 \ar[u] \ar[rd] \ar[ld] \\
+1 \ar[rr] \ar[ruu, bend left] \&\&  2 \ar[luu, bend right]
+\end{tikzcd}
+}
+%
+\adjustbox{scale=0.8}{
+\begin{tikzcd}[ampersand replacement=\&]
+                        \& 0 \arrow[rr] \arrow[dd] \arrow[ld] \&              \& 1 \arrow[dd] \arrow[ld] \\
+2 \arrow[rr] \arrow[dd] \&                                    \& 3 \arrow[dd] \&                         \\
+                        \& 4 \arrow[rr] \arrow[ld]            \&              \& 5 \arrow[ld]            \\
+6 \arrow[rr]            \&                                    \& 7            \&                        
+\end{tikzcd}}
+%
+
+
+
+\end{center}
+
+
+
+\end{columns}
+
+
+%
+%
+
+%
+%
+%
+%%
+%\begin{tikzcd}[ampersand replacement=\&]
+%A \arrow[r, ""{name=U, below}] 
+%\& B \\
+%C \arrow[r, ""{name=D}]
+%\& D \arrow[Rightarrow, from=U, to=D]
+%\end{tikzcd}
+%
+\end{frame}
+
+%===================
+% SLIDE 4
+%===================
+
+
+\begin{frame}
+\frametitle{Definition of Genres}
+\framesubtitle{Part 1 --- Morphisms}
+
+\begin{itemize}
+\item \fbox{$n$-Morphisms: } For all $n \geq 0$ we have a set of $n$-morphisms, $G_n$
+
+\smallskip
+
+\item \fbox{Source/Target: } Every $n$-map has the shape $\phi: f \to g$, for $f, g \in G_{n-1}$
+\end{itemize}
+
+\begin{center}
+\begin{tikzcd}[ampersand replacement=\&]
+A \arrow[r, "f"{name=U, below, description}] 
+\& B \& W \ar[r, "h"{name=up, below, description}] \& X\\
+C \arrow[r, "g"{name=D, description}]
+\& D \arrow[Rightarrow, from=U, to=D, "\phi"{name=left}] \& Y \ar[r, "k"{name=down, description}] \& Z  \arrow[Rightarrow, from=up, to=down, "\psi"{name=right, swap}] \ar["\Phi"{description}, from=left, to=right] 
+\end{tikzcd}
+\end{center}
+
+\begin{itemize}
+\item \fbox{Identities: } For all $f \in G_i$ there is a $1_f \in G_{i+1}$ with $1_f: f \to f$
+\end{itemize}
+
+
+
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{Definition of Genres}
+\framesubtitle{Part 2 --- Composition}
+
+
+\begin{itemize}
+\item \fbox{Composition: } Any $f \xrightarrow{\phi} h \xrightarrow{\alpha} \ell$ are composable: $\phi \circ_1 \alpha: f \to \ell$
+
+
+\end{itemize}
+
+
+
+
+\begin{center}
+\begin{tikzcd}[ampersand replacement=\&]
+A \arrow[r, "f"{name=U, below, description}] 
+\& B \ar[r, "g"{name=U2, below, description}] \& E \\
+C \arrow[r, "h"{name=D, description}]
+\& D \arrow[Rightarrow, from=U, to=D, "\phi"] \ar[r, "k"{name=D2, description}] \& F \ar[Rightarrow, from=U2, to=D2, "\psi"]\\
+G \arrow[r, "\ell"{name=D3, description}]
+\& H \arrow[Rightarrow, from=D, to=D3, "\alpha"] \ar[r, "m"{name=D4, description}] \& K \ar[Rightarrow, from=D2, to=D4, "\beta"]
+\end{tikzcd}
+\end{center}
+
+\begin{itemize}
+\item \fbox{Higher Composition: } We can ask that we have compositions $\circ_n$ where $\phi \circ_n \psi: \phi_s \circ_{n-1} \psi_s \to \phi_t \circ_{n-1} \psi_t$
+\end{itemize}
+
+
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Definition of Genres}
+
+\framesubtitle{Part 3 --- Equivalences}
+
+A genre comes with equivalence relations $\simeq_i$ on $G_i$ such that
+
+\bigskip
+
+\begin{itemize}
+
+\item \fbox{Equivalence: } If $f \simeq g$ then either $f = g$ or there are maps $\phi: f \to g$ and $\phi^*: g \to f$ with $\phi \circ_1 \phi^* \simeq 1_f$ and $\phi^* \circ_1 \phi \simeq 1_g$
+
+\end{itemize}
+
+\bigskip
+
+\begin{equation*}
+\phi: f \rightleftarrows g: \phi^*, \: \Phi: \phi \phi^* \rightleftarrows 1: \Phi^*, \: \Lambda: \Phi \Phi^* \rightleftarrows 1 : \Lambda^* \ldots
+\end{equation*}
+
+\bigskip
+
+\begin{itemize}
+\item \fbox{Weak Unitality: } $1_f \circ \eta \simeq \eta \circ 1_f \simeq \eta$ for all $\eta$.
+
+\medskip
+
+\item \fbox{Weak Associativity: } $(f \circ g) \circ h \simeq f \circ (g \circ h)$
+
+\end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Coherence}
+
+\framesubtitle{The Pentagon Identity}
+
+\begin{center}
+\begin{tikzpicture}[commutative diagrams/every diagram]
+\node (P0) at (90:2.3cm) {$(A \otimes B) \otimes (C \otimes D)$};
+\node (P1) at (90+72:2cm) {$((A \otimes B) \otimes C) \otimes D$} ;
+\node (P2) at (90+2*72:2cm) {\makebox[5ex][r]{$(A \otimes (B \otimes C)) \otimes D$}};
+\node (P3) at (90+3*72:2cm) {\makebox[5ex][l]{$A \otimes ((B \otimes C) \otimes D)$}};
+\node (P4) at (90+4*72:2cm) {$A \otimes (B \otimes (C \otimes D))$};
+\path[commutative diagrams/.cd, every arrow, every label]
+(P1) edge node {$\alpha_{A \otimes B, C, D}$} (P0)
+(P1) edge node[swap] {$\alpha_{A,B,C} \otimes 1_D$} (P2)
+(P2) edge node[swap] {$\alpha_{A, B \otimes C, D}$} (P3)
+(P3) edge node[swap] {$1_A \otimes \alpha_{B,C,D}$} (P4)
+(P0) edge node {$\alpha_{A, B, C \otimes D}$} (P4);
+\end{tikzpicture}
+
+\end{center}
+
+%\begin{center}
+%\begin{tikzcd}[ampersand replacement=\&]
+%\& \& A \otimes B \otimes C \otimes D \ar[rd] \\
+%A \otimes B \otimes C \otimes D \ar[urr, "\alpha_{A \otimes B, C, D}"] \ar[dr, "\alpha_{A ,B,C} \otimes 1_D"] \&\& \& A \otimes B \otimes C \otimes D \\
+%\& A \otimes B \otimes C \otimes D  \ar[rr, "\alpha_{A, B \otimes C, D}"] \&\& A \otimes B \otimes C \otimes D \ar[u]
+%\end{tikzcd}
+%\end{center}
+
+
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{Example: Monoidal Categories}
+
+%give example of where you don't want the pentagon identity satisfied
+%
+
+
+%\begin{tikzcd}[ampersand replacement=\&]
+%\vdots \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2]  \\
+%G_2 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& (\circ, \otimes)  \\
+%G_1 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& \otimes \\
+%*
+%\end{tikzcd}
+%
+
+\begin{columns}[t]
+\column{0.4\textwidth}
+
+\begin{center}
+\begin{tikzcd}[ampersand replacement=\&]
+G_3 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& (\circ_v, \circ_h, \otimes) \\
+G_2 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& (\circ, \otimes)  \\
+G_1 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& \otimes \\
+*
+\end{tikzcd}
+\end{center}
+\column{0.6\textwidth}
+
+\newthought{Weak Unitality: } \smallskip
+
+$1 \otimes A \simeq A \otimes 1 \simeq A$ 
+
+\medskip
+
+\newthought{Weak Associativity: } \smallskip
+
+$(A \otimes B) \otimes C \simeq A \otimes (B \otimes C)$ \medskip
+
+\newthought{Pentagon: } (Non-unique) \smallskip
+
+$((A \otimes B)\otimes C)\otimes D \simeq A \otimes (B \otimes (C \otimes D))$
+
+\end{columns}
+
+
+
+
+%%
+%\begin{tikzcd}[ampersand replacement=\&]
+%G_2 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& (\circ, \otimes)  \\
+%G_1 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& \otimes \\
+%*
+%\end{tikzcd}
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+
+
+\frametitle{Tensor Product of Genres}
+
+
+\adjustbox{scale=0.8, center}{
+\begin{tikzcd}[ampersand replacement=\&]
+\vdots \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& \& \vdots \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& \& \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \vdots \\
+G_2 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& \& H_2 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& \&  G_0 \otimes H_2 + G_1 \otimes H_1 + G_2 \otimes H_0 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \\
+G_1 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& \otimes \& H_1 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& \equiv \& G_0 \otimes H_1 + G_1 \otimes H_0 \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \\
+G_0\& \& H_0 \& \& G_0 \otimes H_0
+\end{tikzcd}}
+
+\bigskip
+
+\begin{center}
+
+$\phi \otimes A: \phi_s \otimes A \to \phi_t \otimes A$, \; $A \in H_0$
+\bigskip
+
+$\phi \otimes \psi: (\phi \otimes \psi_s)(\phi_t \otimes \psi) \to (\phi_s \otimes \psi)(\phi \otimes \psi_t)$
+
+\bigskip
+
+\newthought{Composition: } $(\phi \otimes A)(\psi \otimes A) = \phi \psi \otimes A$, other composition is formal
+
+\end{center}
+
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+
+\frametitle{Tensor Product of Genres}
+\framesubtitle{Example: $I \otimes I$}
+
+\newthought{Interval: } $I$ is the genre/category $0 \xrightarrow{+} 1$
+
+\bigskip
+
+\adjustbox{scale=2,center}{
+\begin{tikzcd}[ampersand replacement=\&]
+(0,0) \arrow[r, "+ \otimes 0"] \arrow[d, "0 \otimes +", swap]
+\& (1,0) \arrow[d, "1 \otimes +"] \ar[Rightarrow, ld, "+ \otimes +" description] \\
+(0,1) \arrow[r, "+ \otimes 1" swap]
+\& (1,1)
+\end{tikzcd}
+}
+
+
+
+
+
+
+\end{frame}
+
+
+%===================
+% SLIDE 8
+%===================
+
+\begin{frame}
+
+
+\frametitle{Functors, Natural Transformations}
+
+
+\newthought{Genre Functors: } $F: G \to H$
+
+\begin{itemize}
+\item $F(f \circ_i g) \simeq F(f) \circ_i F(g)$
+
+\item $F(1_f) \simeq 1_{F(f)}$
+
+\item $F(f_s) \simeq F(f)_s$, $F(f_t) \simeq F(f)_t$
+\end{itemize}
+
+\bigskip
+
+\newthought{Natural Transformations: } A functor $\eta: G \otimes I \to H$ has two subfunctors:
+\begin{itemize}
+\item $\partial_s \eta: G \to H$, $\partial_s \eta(\phi) \equiv \eta(\phi, 0)$
+
+\item $\partial_t \eta: G \to H$, $\partial_t \eta(\phi) \equiv \eta(\phi, 1)$
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Functors, Natural Transformations}
+
+\framesubtitle{Examples}
+
+\begin{center}
+\newthought{$G_{i > 1} = *$: } The only $2$-map is the identity
+
+\begin{tikzcd}[ampersand replacement=\&]
+\partial_s \eta(A) \arrow[r, "\partial_s \eta(f)"] \arrow[d, "\eta_+(A)", swap]
+\& \partial_s \eta(B) \arrow[d, "\eta_+(B)"] \\
+\partial_t \eta(A) \arrow[r, "\partial_t \eta(f)" swap]
+\& \partial_t \eta(B)
+\end{tikzcd}
+
+\medskip
+
+\newthought{$G_{i > 2} = *$: } 
+
+\medskip
+
+\begin{tikzcd}[ampersand replacement=\&]
+\partial_s \eta(A) \arrow[r, "\partial_s \eta(f)"] \arrow[d, "\eta_+(A)", swap]
+\& \partial_s \eta(B) \arrow[d, "\eta_+(B)"] \ar[Rightarrow, ld, "\eta_+(f)" description] \\
+\partial_t \eta(A) \arrow[r, "\partial_t \eta(f)" swap]
+\& \partial_t \eta(B)
+\end{tikzcd}
+
+\end{center}
+
+
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Functors, Natural Transformations}
+
+\framesubtitle{Examples cont'd}
+
+\adjustbox{scale = 1.5, center}{
+\begin{tikzcd}[ampersand replacement=\&]
+\partial_s \eta(A) \ar[r, bend right, ""{name=M}] \ar[r, bend left, ""{name=U, below}] \ar[d] \& \partial_s \eta(B) \ar[Rightarrow, dl, bend left, "\eta_+(\phi_t)", swap] \ar[d] \\
+\partial_t \eta(A) \ar[r, bend right] \& \partial_t \eta(B) \ar[Rightarrow, from=U, to=M, "\partial_s \eta(\phi)" description]
+\end{tikzcd}
+=
+\begin{tikzcd}[ampersand replacement=\&]
+\partial_s \eta(A) \ar[r, bend left] \ar[d] \& \partial_s \eta(B) \ar[Rightarrow, dl, bend right, "\eta_+(\phi_s)"] \ar[d] \\
+\partial_t \eta(A) \ar[r, bend left, ""{name=M, below}] \ar[r, bend right, ""{name=D}] \& \partial_t \eta(B) \ar[Rightarrow, from=M, to=D, "\partial_t \eta(\phi)" description]
+\end{tikzcd}
+}
+
+\bigskip
+
+\begin{center}
+$\phi \otimes \psi: (\phi \otimes \psi_s)(\phi_t \otimes \psi) \to (\phi_s \otimes \psi)(\phi \otimes \psi_t)$
+\end{center}
+
+
+
+\end{frame}
+
+
+
+\begin{frame}
+
+\frametitle{Shape of a Monoidal Category}
+
+
+
+\newthought{Consider the genre: }
+
+\begin{itemize}
+\item $G_0 = *$
+
+\item $G_1$ is free on a single $f: * \to *$
+
+\item $G_2$ is free on unique maps $\mu_n: f^n \to f$
+
+\item $G_3$ has a unique equivalence between any two words $w,x: f^n \to f^m$
+\end{itemize}
+
+\begin{center}
+\begin{tikzcd}[ampersand replacement=\&]
+\{ \alpha, \lambda, \rho, \ldots \} \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& (\circ_v, \circ_h, \otimes) \\
+\{ \mu_n \circ (\mu_{m_1} \otimes \ldots \otimes \mu_{m_n}) \} \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& (\circ, \otimes)  \\
+\{ f^n \} \ar[d, "t" description, shift left=2] \ar[d, "s" description, shift right=2] \& \otimes \\
+*
+\end{tikzcd}
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Shape of a Monoidal 2-Category}
+
+\vspace{-1cm}
+
+\begin{itemize}
+\item $G_0 = *$
+
+\medskip
+
+\item $G_1$ is free on a single $f: * \to *$
+
+\medskip
+
+
+\item $G_2$ is free on unique maps $\mu_n: f^n \to f$
+
+\medskip
+
+\item $G_3$ is free on unique maps $\phi: w \to x$, where $w,x: f^n \to f^m$
+
+\medskip
+
+\item $G_4$ has unique equivalences between any two $\phi, \psi$ that have the same shape (encoding maps that have a total of $n$ inputs and $m$ outputs)
+\end{itemize}
+\end{frame}
+
+%
+%\begin{frame}
+%
+%\frametitle{Limits}
+%
+%\newthought{Cone: } $\partial_s \eta$ is constant at $X$
+%
+%\begin{tikzcd}[ampersand replacement=\&]
+%X \arrow[r, "1_X"] \arrow[d, "\eta_+(A)", swap]
+%\& X \arrow[d, "\eta_+(B)"] \ar[Rightarrow, ld, "\eta_+(f)" description] \\
+%\partial_t \eta(A) \arrow[r, "\partial_t \eta(f)" swap]
+%\& \partial_t \eta(B)
+%\end{tikzcd}
+%
+%
+%
+%
+%
+%\end{frame}
+%
+
+
+%===================
+% SLIDE 5
+%===================
+
+\begin{frame}
+
+\frametitle{Example: Quasicategories}
+\framesubtitle{Dimensions 0, 1, 2}
+
+\vspace{-1cm}
+
+\begin{columns}[t]
+
+
+\column{0.65\textwidth}
+
+
+
+\begin{center}
+\begin{tikzcd}[ampersand replacement=\&]
+0 \ar[r,"f"]  \& 1 
+\end{tikzcd}
+\end{center}
+
+\bigskip
+
+\newthought{$\Delta^0: $} $G_0$ are the vertices
+
+
+\newthought{$\Delta^1: $} $G_1$ are the 1-simplices with formal composition
+
+
+
+\column{0.3\textwidth}
+
+\begin{tikzcd}[ampersand replacement=\&]
+0 \ar[r,"f"] \ar[dr, swap, "f * g"] \& 1 \ar[d, "g"]\\
+\& 2
+\end{tikzcd}
+
+\bigskip
+
+\newthought{$\Delta^2: $} $fg \simeq f*g$
+
+
+
+\end{columns}
+
+
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}
+
+\frametitle{Example: Quasicategories}
+\framesubtitle{Dimensions 3 and Higher}
+
+
+\begin{columns}
+
+\column{0.3\textwidth}
+\begin{tikzcd}[ampersand replacement=\&]
+\& 3  \\
+\& 0 \ar[u, "f*g*h"{name=fgh, description}] \ar[rd, "f*g" description] \ar[ld,"f" description] \\
+1 \ar[rr, "g"{name=D, description} ] \ar[ruu, bend left, "g*h" description] \&\&  2 \ar[luu, bend right, "h" description]
+\end{tikzcd}
+
+\column{0.7\textwidth}
+\begin{itemize}
+\item $(f \circ_1 g) \circ_1 h \simeq (f*g) \circ_1 h \simeq f * g * h$
+
+\medskip
+
+\item $f \circ_1 (g \circ_1 h) \simeq f \circ_1 (g*h) \simeq f * g * h$
+
+\end{itemize}
+\end{columns}
+
+
+
+\medskip
+
+
+
+
+\newthought{$\Delta^3$: } $(f \circ_1 g) \circ h \simeq f \circ_1 (g \circ_1 h)$
+
+
+
+\medskip
+
+
+\newthought{$\Delta^n$: } $((f_1 f_2) f_3) \ldots f_{n-1})f_n \simeq f_1 (f_2 (\ldots (f_{n-1} f_n)))$
+
+
+
+
+
+\end{frame}
+
+
+
+
+
+\end{document}
+
+
+
+
+
+

@@ -1,0 +1,147 @@
+
+%\usepackage[demo]{graphicx}
+\usepackage{wallpaper}
+\usepackage{wrapfig,booktabs}
+
+\usepackage{fancyhdr}
+\usepackage{lettrine}
+
+\usepackage{mdframed}
+
+\usepackage{cancel}
+
+%\usepackage{geometry}
+%\geometry{
+%tmargin=5cm, 
+%bmargin=5cm, 
+%lmargin=5cm, 
+%rmargin=3cm,
+%headheight=1.5cm,
+%headsep=0.8cm,
+%footskip=0.5cm}
+
+
+\usepackage{tabularx}
+
+\usepackage{braket}
+
+
+
+
+%=====================
+% MATH
+%=====================
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\usepackage{tikz-cd}
+\usepackage{xparse}
+
+% To get a get a nice curvy arrow to talk about paths
+\DeclareSymbolFont{lasy}{U}{lasy}{m}{n}
+\SetSymbolFont{lasy}{bold}{U}{lasy}{b}{n}
+\DeclareMathSymbol\leadsto{\mathrel}{lasy}{"3B}
+
+
+
+% To have arrow heads in the middle
+\usetikzlibrary{decorations.markings, arrows.meta}
+\tikzset{
+    marrow/.style={decoration={markings,mark=at position 0.5 with {\arrow{#1}}}, postaction=decorate}
+}
+
+
+%\usepackage[colorlinks=true]{hyperref}
+
+\usepackage[nameinlink]{cleveref} % Better references to lemmas etc. The nameinlink makes all of 'Theorem 1' clickable
+
+
+%\usepackage{titling} %Lets you have more than one title in a document
+% But this won't work with ams articles, so I'll need to add it in separately for my own work and comment it out for research articles
+
+
+\usepackage{adjustbox}
+
+
+
+\usepackage[nointegrals]{wasysym}
+
+\usepackage{fontawesome} % really cool fonts like morph and obj
+\usepackage{tikz}
+
+
+
+%========================
+% COMMANDS
+%========================
+
+
+\newcommand{\Def}[1]{\textbf{\boldmath{#1}}}
+
+
+
+%Field Theory
+\newcommand{\exten}[2]{{#2}_{#1}}
+
+
+
+\newcommand{\colim}{\operatorname{colim}}
+
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\newcommand{\newthought}[1]{\medskip\noindent\fbox{{#1}}}
+
+
+\newcommand{\abs}[1]{| #1 |}
+
+\newcommand{\cat}[1]{\mathcal{#1}}
+
+
+\newcommand{\coker}{\operatorname{coker}}
+
+\newcommand{\im}{\operatorname{Im}}
+
+\newcommand{\const}{\text{\faAsterisk}}
+
+
+\newcommand{\obj}{\text{\faCube}}
+
+\newcommand{\morph}{\text{\faLocationArrow}}
+
+\newcommand{\mor}[2]{\text{Mor}(#1, #2)}
+
+\newcommand{\nbh}[1]{\mathcal{N}_{#1}} % The set of neighbourhoods around $x$.
+
+
+\newcommand{\twist}{\text{\faRefresh}}
+
+
+%================================
+% HOMOTOPY / MODEL CATEGORIES
+%=================================
+
+\newcommand{\cyl}{\text{\faDatabase}}
+
+\newcommand{\paths}{\text{\faPencilSquareO }}
+
+
+%
+%\newcommand{\bnbh}[1]{\mathcal{B}_{#1}}
+%
+%\newcommand{\base}[1]{\langle \cdot #1 \cdot \rangle}
+
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+
+\newcommand{\triforce}{\resizebox{1em}{!}{
+\begin{tikzpicture}
+\fill[black] (0,0)  -- +(2,0) -- +(60:2) -- cycle;
+\fill[white]  (60:1) -- +(1,0)  -- (1,0) -- cycle;
+\end{tikzpicture}
+}}
+

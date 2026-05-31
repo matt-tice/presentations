@@ -1,0 +1,267 @@
+
+
+
+\title{Constructions in Quasi-Categories}
+
+\maketitle
+
+
+
+
+
+\begin{tikzcd}
+& 3 \\
+& 0 \ar[dl] \ar[dr] \ar[u] \\
+1 \ar[uur, bend left] \ar[rr] & & 2 \ar[uul, bend right]
+\end{tikzcd}
+
+
+
+\begin{tikzcd}
+& 0 \ar[dl, swap, "f"] \ar[dr, "fg"] \\
+1 \ar[rr, swap, "g"] & & 2 
+\end{tikzcd}
+
+
+
+
+
+
+
+
+
+
+\begin{tikzcd}
+& 3 \\
+& 0 \ar[dl, swap, "f"] \ar[dr, "fg"] \ar[u, "fgh"] \\
+1 \ar[uur, bend left, "gh"] \ar[rr, swap, "g"] & & 2 \ar[uul, bend right, swap, "h"]
+\end{tikzcd}
+
+
+
+
+
+\begin{definition}{Homotopy}{•}
+$f \simeq g$ if there is a $2$-morphism of the form
+\begin{center}
+\begin{tikzcd}
+& 0 \ar[dl, swap, "id"] \ar[dr, "g"] \\
+1 \ar[rr, swap, "f"] & & 2 
+\end{tikzcd}
+
+\end{center}
+\end{definition}
+
+
+
+
+
+\begin{lemma}{•}{•}
+
+\end{lemma}
+\begin{proof-lemma}
+
+
+
+\newthought{Reflexive: }
+
+
+\begin{tikzcd}
+& 0 \ar[dl, swap, "id"] \ar[dr, "f"] \\
+1 \ar[rr, swap, "f"] & & 2 
+\end{tikzcd}
+
+
+\newthought{Symmetric: } 
+
+%
+%\begin{tikzcd}[column sep=scriptsize]
+%A \arrow[dr] \arrow[rr, "f"{name=U, below, draw=red}]{}
+%& & B \arrow[dl] \\
+%& C \ar[from=U]
+%\end{tikzcd}
+%%
+
+
+%\begin{tikzcd}
+%A \arrow[to=Z, red] \arrow[to=2-2, blue]
+%& B \\
+%|[alias=Z]| C
+%& D
+%\arrow[from=ul, to=1-2]
+%\end{tikzcd}
+
+
+\begin{tikzcd}
+& 3 \\
+& 0 \ar[dl, swap,"id"] \ar[dr, "id"] \ar[u, "f"] \\
+1 \ar[uur, bend left, "g"{name=U}] \ar[rr, swap, "id"]{} \ar[from=U, to=2-2, phantom, "\blacksquare"] & & 2 \ar[uul, bend right, swap, "f"] 
+\end{tikzcd}
+
+
+
+\newthought{Transitive: } 
+
+\begin{tikzcd}
+& 3 \\
+& 0 \ar[dl, swap, "id"] \ar[dr, "id"] \ar[u, "h"] \\
+1 \ar[uur, bend left, "g"] \ar[rr, swap, "id"] & & 2 \ar[uul, bend right, swap, "f"{name=U}] \ar[from=U, to=2-2, phantom, "\blacksquare"]
+\end{tikzcd}
+
+
+
+\end{proof-lemma}
+
+
+
+
+
+
+
+
+\begin{definition}{Composition}{•}
+
+
+any choice of $fg$
+
+\begin{tikzcd}
+& 0 \ar[dl, swap, "f"] \ar[dr, "fg"] \\
+1 \ar[rr, swap, "g"] & & 2 
+\end{tikzcd}
+
+\end{definition}
+
+
+
+
+\section{Fibrations}
+
+
+
+
+\begin{definition}{Fibre of a Functor}{•}
+
+\begin{tikzcd}
+\cat{F} \ar[r, "\mid" marking] \ar[d, "\mid" marking] & \cat{B} \ar[d] \\
+* \ar[r] & \cat{C}
+\end{tikzcd}
+\end{definition}
+\begin{defframe}
+
+since simplicial sets are presheafs, their pullbacks are done pointwise
+
+So we just need pullbacks in sets
+
+so given a functor, which maps $B_i \to C_i$, we just apply the pullback on that
+
+So the fibre is the elements of $B_i$ that get mapped to the identity
+
+
+\end{defframe}
+
+
+
+
+
+\begin{prop}{•}{•}
+
+is an acyclic kan fibration
+
+so each of the fibers are contractible
+
+(fibers are the pullback
+\end{prop}
+
+
+
+\begin{lemma}{•}{•}
+
+\end{lemma}
+\begin{proof-lemma}
+
+
+
+\begin{tikzcd}
+& 3 \\
+& 0 \ar[dl, swap,"id"] \ar[dr, "id"] \ar[u, "f"] \\
+1 \ar[uur, bend left, "g"{name=U}] \ar[rr, swap, "id"]{} \ar[from=U, to=2-2, phantom, "\blacksquare"] & & 2 \ar[uul, bend right, swap, "f"] 
+\end{tikzcd}
+
+
+
+\end{proof-lemma}
+
+
+
+\begin{definition}{Homotopy Category}{•}
+
+\end{definition}
+
+
+
+
+\begin{definition}{Mapping Space}{•}
+
+\end{definition}
+
+
+\begin{prop}{•}{•}
+is a kan complex
+\end{prop}
+\begin{proof-prop}
+
+
+
+\begin{tikzcd}
+& 3 \\
+& 0 \ar[dl, swap,"id"] \ar[dr, "id"] \ar[u, "h"] \\
+1 \ar[uur, bend left, "g"{name=U}] \ar[rr, swap, "id"]{} \ar[from=U, to=2-2, phantom, "\blacksquare"] & & 2 \ar[uul, bend right, swap, "f"] 
+\end{tikzcd}
+
+
+
+
+\end{proof-prop}
+
+
+
+
+\begin{definition}{$\infty$-Groupoid}{•}
+all morphisms are equivalences
+\end{definition}
+
+
+\begin{prop}{•}{•}
+iff kan complex
+\end{prop}
+\begin{proof-prop}
+
+
+from 
+we know that the mapping space is a kan complex, so we can fill every horn 
+
+
+
+\end{proof-prop}
+
+
+
+
+
+
+
+\begin{definition}{Functor}{•}
+
+natural transformation
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+

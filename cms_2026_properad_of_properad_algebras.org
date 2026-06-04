@@ -14,23 +14,106 @@
 *
 ** Definition: Operads
 
+\adjustbox{center}{
+\begin{tikzpicture}
+  \node {$H$}
+    child {node {$\mu$}
+    		child {node {$H$}}
+    		child {node {$H$}}
+    	};
+\end{tikzpicture}
+\quad
+\raisebox{6pt}{
+\begin{tikzpicture}
+  \node {$H$}
+    child {node {$\eta$}
+    		child {[fill] circle (2pt)}
+    	};
+\end{tikzpicture}}
+\quad
+\begin{tikzpicture}
+  \node {$H$} [grow'=up]
+    child {node {$\Delta$}
+    		child {node {$H$}}
+    		child {node {$H$}}
+    	};
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}[grow'=up]
+  \node {$H$}
+    child {node {$\varepsilon$}
+    		child {[fill] circle (2pt)}
+    	};
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}
+  \node {$H$}
+    child {node {$S$}
+    		child {node {$H$}}
+    	};
+\end{tikzpicture}
+}
+
+
 ** Definition: Properads
+
+\adjustbox{center}{
+\begin{tikzpicture}
+  \node {$H$}
+    child {node {$\mu$}
+    		child {node {$H$}}
+    		child {node {$H$}}
+    	};
+\end{tikzpicture}
+\quad
+\raisebox{6pt}{
+\begin{tikzpicture}
+  \node {$H$}
+    child {node {$\eta$}
+    		child {[fill] circle (2pt)}
+    	};
+\end{tikzpicture}}
+\quad
+\begin{tikzpicture}
+  \node {$H$} [grow'=up]
+    child {node {$\Delta$}
+    		child {node {$H$}}
+    		child {node {$H$}}
+    	};
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}[grow'=up]
+  \node {$H$}
+    child {node {$\varepsilon$}
+    		child {[fill] circle (2pt)}
+    	};
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}
+  \node {$H$}
+    child {node {$S$}
+    		child {node {$H$}}
+    	};
+\end{tikzpicture}
+}
+
 
 ** Operad of Operad Algebras
 
-\begin{prop}{The Operad of Operad Algebras}{operad-of-operad-alg-gen}
+
+#+begin_prop{The Operad of Operad Algebras}{operad-of-operad-alg-gen}
 Let $\mathcal{V}$ be a symmetric monoidal category with all small coproducts and let $\mathcal{O}$ be a coloured operad in $\mathcal{V}$. For any small category, $\mathcal{C}$, there exists an operad $\mathcal{O}^{\mathcal{C}}$ in $\mathcal{V}$ whose algebras are the functors 
 \begin{equation*}
 F: \mathcal{C} \to \mathcal{O} \text{-Alg}.
 \end{equation*}
-\end{prop}
+#+end_prop
 
-\begin{prop}{Properad of Properad Algebras}{prop-of-prop-algs}
+#+begin_prop{Properad of Properad Algebras}{prop-of-prop-algs}
 Let $\mathcal{P}$ be a coloured properad in a closed monoidal category with all small coproducts $\mathcal{V}$. For any small category $\mathcal{C}$, there exists a properad $\mathcal{P}^{\mathcal{C}}$ whose algebras are the functors
 \begin{equation*}
 F: \mathcal{C} \to \mathcal{P}\text{-Alg}.
 \end{equation*}
-\end{prop}
+#+end_prop
 
 
 ** Precursors
@@ -122,6 +205,7 @@ we can actually handle things like L_{\infty}-bialgebras, quantum groups
 *** Vallette's Properadic Koszul Duality
 
 *** Kontsevich's Graph Complexes
+
 
 * You can take colimits in C
 

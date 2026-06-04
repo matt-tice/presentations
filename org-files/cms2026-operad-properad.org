@@ -1,0 +1,133 @@
+#+TITLE: Hopf-Frobenius Gauge Theories
+#+AUTHOR: Matt Alexander
+#+DATE: June 5, 2028
+#+EMAIL: mpa097@uregina.ca
+#+OPTIONS: H:2 toc:nil
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [presentation]
+#+BEAMER_THEME:themes/queer
+#+COLUMNS: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
+
+** Operads
+
+*** Definition
+
+diagram
+
+
+** AQFTs
+
+in yau's approach the entire structure is turned into homotopy
+
+** Operad of Operad Algebras
+
+\begin{prop}{The Operad of Operad Algebras}{operad-of-operad-alg-gen}
+Let $\cat{V}$ be a symmetric monoidal category with all small coproducts and let $\cat{O}$ be a coloured operad in $\cat{V}$. For any small category, $\cat{C}$, there exists an operad $\cat{O}^{\cat{C}}$ in $\cat{V}$ whose algebras are the functors 
+\begin{equation*}
+F: \cat{C} \to \cat{O} \text{-Alg}.
+\end{equation*}
+\end{prop}
+
+\begin{prop}{Properad of Properad Algebras}{prop-of-prop-algs}
+Let $\cat{P}$ be a coloured properad in a closed monoidal category with all small coproducts $\cat{V}$. For any small category $\cat{C}$, there exists a properad $\cat{P}^{\cat{C}}$ whose algebras are the functors
+\begin{equation*}
+F: \cat{C} \to \cat{P}\text{-Alg}.
+\end{equation*}
+\end{prop}
+
+*** explicit version
+
+** Precursors
+
+\framesubtitle{Operad of Operad Algebras}
+
+
+\textit{Colored Operads}, Yau (2017).
+
+\begin{itemize}
+\item The construction of $\cat{O}^{\cat{C}}$ is left as an exercise.
+\end{itemize}
+
+
+\bigskip
+
+
+
+\textit{Operads for algebraic quantum field theory}, Benini, Schenkel, Woike (2021).
+
+\begin{itemize}
+\item $\cat{O}^{\cat{C}}$ is constructed in the case that $\cat{O}$ is the associative operad.
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+%============================
+% FRAME
+%============================
+
+
+
+
+
+
+** Orthogonal Category
+
+Let $\cat{C}$ be a small category. An \Def{orthogonality relation} $\perp$ on $\cat{C}$ is a relation on pairs of morphisms in $\cat{C}$ such that if $f \perp g$
+then $f$ and $g$ have the same codomain, and required to satisfy
+\begin{itemize}
+\item If $f \perp g$ then $g \perp f$.
+
+\item If $g \perp h$ then $fg \perp fh$ for all composable $f$.
+
+\item If $g_1 \perp g_2$ then $g_1 h \perp g_2 k$ for all composable $h,k$.
+\end{itemize}
+
+\medskip
+
+An \Def{orthogonal category} is a small category $\cat{C}$ with an orthogonality relation $\perp$.
+
+
+
+
+
+
+
+** Properad of Laplace Hopf AQFTs}\footnotetext{AQFTs were introduced in \textit{An algebraic approach to quantum field theory} Haag and Kastler (1964).
+
+
+Let $(\cat{C}, \perp)$ be an orthogonal category. A \Def{Laplace Hopf algebraic quantum field theory} is a functor
+\begin{align*}
+F: \cat{C} \to \cat{LB}(\cat{V})
+\end{align*}
+where $\cat{LB}(\cat{V})$ is the category of Laplace bialgebras on a symmetric monoidal category $\cat{V}$, such that the following \textbf{causality diagram} commutes:
+
+\medskip
+
+\begin{center}
+\begin{tikzcd}[ampersand replacement=\&]
+F(A) \otimes F(B) \arrow[r, "F(f) \otimes F(g)"] \arrow[d, swap, "F(f) \otimes F(g)"] \& F(C) \otimes F(C) \arrow[r, "\tau"] \& F(C) \otimes F(C) \arrow[d, "\mu"] \\
+F(C) \otimes F(C) \arrow[rr, swap, "\mu"]  \& \& F(C)
+\end{tikzcd}
+\end{center}
+
+\medskip 
+
+whenever $f \perp g$.
+
+
+*** explicit version
+
+** Homotopy
+
+
+

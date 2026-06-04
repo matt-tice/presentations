@@ -1,0 +1,140 @@
+#+TITLE: A (Pr)operad of (Pr)operad Algebras
+#+AUTHOR: Matt Alexander
+#+DATE: June 5, 2028
+#+EMAIL: mpa097@uregina.ca
+#+OPTIONS: H:2 toc:nil
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [presentation]
+#+BEAMER_THEME:themes/queer
+#+COLUMNS: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
+
+* Section Divider
+
+
+*
+** Definition: Operads
+
+** Definition: Properads
+
+** Operad of Operad Algebras
+
+\begin{prop}{The Operad of Operad Algebras}{operad-of-operad-alg-gen}
+Let $\mathcal{V}$ be a symmetric monoidal category with all small coproducts and let $\mathcal{O}$ be a coloured operad in $\mathcal{V}$. For any small category, $\mathcal{C}$, there exists an operad $\mathcal{O}^{\mathcal{C}}$ in $\mathcal{V}$ whose algebras are the functors 
+\begin{equation*}
+F: \mathcal{C} \to \mathcal{O} \text{-Alg}.
+\end{equation*}
+\end{prop}
+
+\begin{prop}{Properad of Properad Algebras}{prop-of-prop-algs}
+Let $\mathcal{P}$ be a coloured properad in a closed monoidal category with all small coproducts $\mathcal{V}$. For any small category $\mathcal{C}$, there exists a properad $\mathcal{P}^{\mathcal{C}}$ whose algebras are the functors
+\begin{equation*}
+F: \mathcal{C} \to \mathcal{P}\text{-Alg}.
+\end{equation*}
+\end{prop}
+
+
+** Precursors
+
+*** /Coloured Operads/, Yau (2017)
+
+- The construction of $\mathcal{O}^{\mathcal{C}}$ is left as an exercise.
+
+*** /Operads for algebraic quantum field theory/, Benini, Schenkel, Woike (2021)
+
+
+- $\mathcal{O}^{\mathcal{C}}$ is constructed in the case that $\mathcal{O}$ is the associative operad.
+
+** Orthogonal Categories
+
+Let $\mathcal{C}$ be a small category. An \Def{orthogonality relation} $\perp$ on $\mathcal{C}$ is a relation on pairs of morphisms in $\mathcal{C}$ such that if $f \perp g$
+then $f$ and $g$ have the same codomain, and required to satisfy
+\begin{itemize}
+\item If $f \perp g$ then $g \perp f$.
+
+\item If $g \perp h$ then $fg \perp fh$ for all composable $f$.
+
+\item If $g_1 \perp g_2$ then $g_1 h \perp g_2 k$ for all composable $h,k$.
+\end{itemize}
+
+\medskip
+
+An \Def{orthogonal category} is a small category $\mathcal{C}$ with an orthogonality relation $\perp$.
+
+
+** Properad of Laplace Hopf AQFTs
+
+
+# \footnotetext{AQFTs were introduced in \textit{An algebraic approach to quantum field theory} Haag and Kastler (1964).}
+
+Let $(\mathcal{C}, \perp)$ be an orthogonal category. A \Def{Laplace Hopf algebraic quantum field theory} is a functor
+\begin{align*}
+F: \mathcal{C} \to \mathcal{LB}(\mathcal{V})
+\end{align*}
+where $\mathcal{LB}(\mathcal{V})$ is the category of Laplace bialgebras on a symmetric monoidal category $\mathcal{V}$, such that the following \textbf{causality diagram} commutes:
+
+\medskip
+
+\begin{center}
+\begin{tikzcd}[ampersand replacement=\&]
+F(A) \otimes F(B) \arrow[r, "F(f) \otimes F(g)"] \arrow[d, swap, "F(f) \otimes F(g)"] \& F(C) \otimes F(C) \arrow[r, "\tau"] \& F(C) \otimes F(C) \arrow[d, "\mu"] \\
+F(C) \otimes F(C) \arrow[rr, swap, "\mu"]  \& \& F(C)
+\end{tikzcd}
+\end{center}
+
+\medskip 
+
+whenever $f \perp g$.
+
+
+
+
+
+** My construction is functorial in O
+
+** Introducing Homotopy
+
+we can't use lurie's approach, because it's based on a quasi-categorical notion of infinity operads (cocartesian fibrations)
+
+but we can use
+
+** Strict dg-Operads
+
+Work over chain complexes
+
+Take the bar-cobar resolution
+
+** Simplicial Operads
+
+Take sSet and use the BV resolution
+
+** Other
+
+Moving outside of bar-cobar and bv, is necessary when you need to encode loops, coperadic things, non-augmented symmetries, or non-flat geometry
+
+*** Sheaves
+
+** Properads
+
+the bar construction doesn't work for them
+
+we can actually handle things like L_{\infty}-bialgebras, quantum groups
+
+*** Vallette's Properadic Koszul Duality
+
+*** Kontsevich's Graph Complexes
+
+* You can take colimits in C
+
+
+If you want to compute the local-to-global behavior of your field theory, you are computing the Left Kan Extension of your algebra functor along the embedding of local patches into the global space.
+
+"If you resolve a sheaf of observables using traditional point-wise Bar-Cobar or BV resolutions, the free generation of higher cells destroys the local gluing laws. Our construction avoids this homological collapse. By keeping the kinematic operad $\mathcal{O}$ completely strict and global, and routing all topological gluing parameters through the indexing category $\mathcal{C}$, the distribution of $\otimes$ over $\coprod$ guarantees that the operadic structure commutes with geometric localization. We achieve homotopy-coherent descent on the fields without destroying the strict geometric architecture of the spacetime network."
+
+
+
+* Enriched Categories
+
+Consider a symmetric monoidal category $\mathcal{V}$ with all small coproducts, such that $\otimes$ distributes over finite coproducts. Let $\mathcal{C}$ be enriched in $\mathcal{V}$ and let $\mathcal{O}$ be a $\mathcal{V}$-operad.
+
+
+

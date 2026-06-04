@@ -1,0 +1,573 @@
+
+
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\usepackage{tikz-cd}
+\usepackage{xparse}
+\usepackage{adjustbox}
+\usepackage{braket}
+
+
+
+\usepackage{tabularx}
+
+%\newcommand{\cat}[1]{\mathcal{#1}}
+
+
+
+\title{Hopf-Frobenius Gauge Theories}
+
+\author{Matt Alexander}
+\usetheme{themes/queer}
+
+
+%\newcommand{\newthought}[1]{\medskip\noindent\fbox{{#1}}}
+
+
+\input{definitions.tex}
+
+
+
+\input{usepackage}
+
+
+
+\begin{document}
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+
+%===================
+% SLIDE 1
+%===================
+
+
+
+
+
+
+
+%===================
+% SLIDE 2
+%===================
+
+
+
+\begin{frame}
+
+\frametitle{Definition of Frobenius Algebras}
+
+%\framesubtitle{Part 3 --- Equivalences}
+
+A Frobenius algebras is a unital associative $k$-algebra with a pairing $\gen{\cdot, \cdot}: F \otimes F \to k$, such that
+
+\begin{itemize}
+\item \newthought{Non-degenerate: } If $\gen{x,y} = 0$ for all $y$, then $x = 0$. Similarly, $\gen{x,y} = 0$ for all $x$ implies $y=0$.
+
+\item \fbox{Associativity: } $\gen{xy,z} = \gen{x,yz}$, or in the complex case, $\gen{xy,z} = \gen{x, y^* z}$.
+\end{itemize}
+
+
+\newthought{Equivalently: } A linear functional $\varepsilon: F \to k$, that satisfies the non-degeneracy condition
+\begin{equation*}
+\gen{x,y} = \varepsilon(xy) \quad \gen{x,y} = \varepsilon(x^* y)
+\end{equation*}
+
+
+\end{frame}
+
+
+%===================
+% SLIDE 1
+%===================
+
+
+
+%===================
+% SLIDE 2
+%===================
+
+
+
+\begin{frame}
+\frametitle{Frobenius Algebras}
+
+\framesubtitle{Examples}
+
+
+
+\begin{tabularx}{\textwidth}{lll>{\raggedright\arraybackslash}X}
+\toprule
+Space & $\mu$ & $\gen{\cdot, \cdot}$ 
+\\
+\midrule
+\\
+$C_c^{\infty}(X)$ & Pointwise & $\gen{f,g} = \int f^* g$ \\
+Schwartz functions $\cat{S}$ & Pointwise & $\gen{f,g} = \int f^* g$
+\\
+\\
+$\mathbb{R}^n$ w/ basis $\{ e_i \}$ & $e_i e_j = \delta_{ij} e_i$ & $\gen{e_i,e_j} = \delta_{ij}$ \\
+Hilbert space w/ basis $\{ e_i \}$ & $e_i e_j = \delta_{ij} e_i$ & $\gen{e_i,e_j} = \gen{e_i, e_j}_H$  \\
+\\
+$kG$ (finite group) & Group mult. & $\gen{g,h} = \delta_{gh, 1}$ 
+\\
+\bottomrule
+\end{tabularx}
+
+\medskip
+
+
+\begin{equation*}
+\cat{S} = \{ f \in C^{\infty}(\mathbb{R}^n, \mathbb{C}) \mid \sup_{x} \abs{x^\alpha D^\beta f(x)} < \infty, \forall \alpha, \beta \}
+\end{equation*}
+
+
+
+\end{frame}
+
+%===================
+% SLIDE 3
+%===================
+
+
+
+\begin{frame}
+\frametitle{Hopf Algebras}
+
+\framesubtitle{Definition}
+
+A Hopf algebra is a unital associative $k$-algebra, $H$, with maps 
+
+\medskip
+
+\begin{itemize}
+\item \fbox{Comultiplication: } $\Delta: H \to H \otimes H$
+
+\item \fbox{Counit: } $\varepsilon: H \to k$
+
+\item \fbox{Antipode: } An involution $S: H \to H$
+\end{itemize}
+which satisfy appropriate compatibility conditions.
+
+\medskip
+
+\adjustbox{center}{
+\begin{tikzpicture}
+  \node {$H$}
+    child {node {$\mu$}
+    		child {node {$H$}}
+    		child {node {$H$}}
+    	};
+\end{tikzpicture}
+\quad
+\raisebox{6pt}{
+\begin{tikzpicture}
+  \node {$H$}
+    child {node {$\eta$}
+    		child {[fill] circle (2pt)}
+    	};
+\end{tikzpicture}}
+\quad
+\begin{tikzpicture}
+  \node {$H$} [grow'=up]
+    child {node {$\Delta$}
+    		child {node {$H$}}
+    		child {node {$H$}}
+    	};
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}[grow'=up]
+  \node {$H$}
+    child {node {$\varepsilon$}
+    		child {[fill] circle (2pt)}
+    	};
+\end{tikzpicture}
+\quad
+\begin{tikzpicture}
+  \node {$H$}
+    child {node {$S$}
+    		child {node {$H$}}
+    	};
+\end{tikzpicture}
+}
+
+%
+%\begin{tikzpicture}
+%  \node[fill, circle] {}
+%    child {[fill] circle (2pt)}
+%    child {[fill] circle (2pt)} {child {[fill] circle (2pt)}}
+%    child {[fill] circle (2pt)};
+%\end{tikzpicture}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+\begin{frame}
+
+
+\frametitle{Hopf Algebras}
+%
+
+\framesubtitle{Examples}
+
+\begin{tabularx}{\textwidth}{lll>{\raggedright\arraybackslash}X}
+\toprule
+Space & $\Delta$ & $\varepsilon$
+\\
+\midrule
+\\
+$kG$  & $\Delta g = g \otimes g$ & $\varepsilon(g) = 1$ \\
+\\
+Tensor alg. $T(X)$ & $\Delta x = x \otimes 1 + 1 \otimes x$ & $\varepsilon(x) = 0$ \\
+Symmetric alg. $S(X)$ & $\Delta x = x \otimes 1 + 1 \otimes x$ & $\varepsilon(x) = 0$ \\
+Univ. Env. Alg. $U(\mathfrak{g})$ & $\Delta x = x \otimes 1 + 1 \otimes x$ & $\varepsilon(x) = 0$
+\\
+\\
+$\Lambda(X)$ & $\Delta x = x \otimes 1 - 1 \otimes x$ & $\varepsilon(x) = 0$
+\\
+\bottomrule
+\end{tabularx}
+
+\medskip 
+
+\newthought{Sweedler Notation: } Denote the comultiplication by
+\begin{equation*}
+\Delta x = \sum x_{(1)} \otimes x_{(2)}.
+\end{equation*}
+
+\end{frame}
+
+%===================
+% SLIDE 4
+%===================
+
+
+\begin{frame}
+
+\frametitle{Hopf-Frobenius Modules}
+\framesubtitle{Definition}
+
+A left Hopf-Frobenius module is a pair $(H,F)$ where $H$ is a Hopf algebra, $F$ is a Frobenius algebra, such that the following conditions are satisfied:
+
+\bigskip
+
+\begin{itemize}
+
+\item \fbox{Module: } $F$ is a left $H$-module.
+
+\medskip
+
+\item \fbox{Weak Cartan: }  $\sum \gen{g_{(1)} \cdot x, g_{(2)} \cdot y} = \varepsilon(g) \gen{x,y}$.
+
+\medskip
+
+\item \fbox{Antipode Condition: }  $\gen{S(g) \cdot x, y} = \gen{x, g \cdot y}$.
+
+\end{itemize}
+
+
+
+
+
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{Hopf-Frobenius Modules}
+\framesubtitle{Example 1 --- Derivatives of Functions}
+
+
+Take our Hopf algebra to be $k[\partial]$ and the Frobenius algebra to be $\cat{S}$, the space of Schwartz functions. This is an HF-module with
+
+\bigskip
+
+\begin{itemize}
+
+\item \fbox{Action: } $\partial \cdot f = f'$, the derivative of $f$
+
+
+\medskip
+
+\item \fbox{Weak Cartan / Antipode: } Both of these conditions reduce to
+
+\begin{equation*}
+\int (\partial \cdot f) g  = - \int f (\partial \cdot g)
+\end{equation*}
+The \textbf{weak derivative} condition.
+% $\gen{\partial f, g} + \gen{f, \partial g} = \varepsilon(\partial) \gen{f,g} = 0$. So
+%\begin{equation}
+%\int (\partial f) g + \int f (\partial g) = 0
+%\end{equation}
+%
+%\item \fbox{Antipode: } $S(\partial) = - \partial$
+\end{itemize}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+
+\frametitle{Hopf-Frobenius Modules}
+\framesubtitle{Example 2 --- Operators on a Hilbert Space}
+
+Let $F$ be a separable Hilbert space, and let $\{ A_i \}$ be a family of compact mutually-commuting \textit{skew-Hermitian} operators on $F$. Then we can find an orthonormal basis of simultaneous eigenvectors, $\{ e_k \}$. 
+
+Take $(F, \{ e_k \})$ as our Frobenius algebra, and let $H = U(\{ A_i \} )$ be the universal enveloping algebra of the abelian Lie algebra generated by the $\{ A_i \}$. This is a HF-module where
+
+
+\begin{itemize}
+
+\item \fbox{Action: } $A_i \cdot e_k = A_i e_k = \alpha_{i}^k e_k$, the natural action of the Hermitian operators on the eigenvector basis.
+
+
+\medskip
+
+\item \fbox{Weak Cartan / Antipode: } Both of these conditions reduce to
+
+\begin{equation*}
+\gen{H x, y} = - \gen{x, Hy}
+\end{equation*}
+The \textbf{skew-Hermitian} condition.
+\end{itemize}
+
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+
+\frametitle{Hopf-Frobenius Modules}
+\framesubtitle{Example 3 --- Lie Groups}
+
+
+Consider the Lie group $U(n)$, and let $H$ be its group algebra over $\mathbb{C}$. Take $\mathbb{C}^n$ with basis $\{ e_i \}$ as our Frobenius algebra.
+
+\bigskip
+
+\begin{itemize}
+
+\item \fbox{Action: } Left multiplication.
+
+
+\medskip
+
+\item \fbox{Weak Cartan / Antipode: } Both of these conditions reduce to
+
+\begin{equation*}
+\gen{g \cdot x, g \cdot y} = \gen{x,y}
+\end{equation*}
+The unitarity condition.
+
+\end{itemize}
+
+
+
+
+\end{frame}
+
+
+
+%===================
+% SLIDE 2
+%===================
+
+
+
+\begin{frame}
+
+
+\frametitle{Hopf-Frobenius Modules}
+%
+
+\begin{tabularx}{\textwidth}{ll|ll>{\raggedright\arraybackslash}X}
+\toprule
+Frobenius & & Hopf
+\\
+\midrule
+& & \\
+States & \textbf{Hil} & Operators & $B(\textbf{Hil})$ \\
+Functions & $\cat{S}$ & Derivatives & $\mathbb{C}[\partial_1, \ldots, \partial_n]$ \\
+Space & $\mathbb{R}^{1,3}$ & Transformations & $\Lambda$
+\\
+&& \\
+\bottomrule
+\end{tabularx}
+
+
+
+\end{frame}
+
+
+
+%===================
+% SLIDE 2
+%===================
+
+
+
+
+\begin{frame}
+\frametitle{Wightman Axioms}
+\framesubtitle{Relativistic Quantum Mechanics}
+
+
+\begin{enumerate}
+\item \fbox{Hilbert Space: } There is a separable Hilbert space of states $X$.
+
+\item \fbox{Evolution: } There is a unitary representation of $SL(2, \mathbb{C})$ on $X$, which we denote $U(L,a)$
+
+\item \fbox{Spectral Condition: } We can write $U(1,a) = \exp(i P^{\mu} a_\mu)$ and the eigenvalues of $P$ satisfy $p_0^2 - \sum_{i=1}^3 p_i^2 > 0$ and $p^0 > 0$.
+
+\item \fbox{Vacuum: } There is a unique vector $\ket{0} \in X$ invariant under $U(L,a)$.
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+
+
+%===================
+% SLIDE 2
+%===================
+
+
+\begin{frame}
+
+\frametitle{Wightman Axioms}
+\framesubtitle{Field Conditions}
+
+\begin{enumerate}
+\item \fbox{Dense Subset: } There is a dense subset $D \subseteq X$ which contains $\ket{0}$ and is mapped to itself by $U(L,a)$.
+
+\item \fbox{Fields: } Quantum fields are operator-valued distributions on a Schwartz space, $\phi_i: \cat{S} \to B(D)$.
+
+\item \fbox{Transformations: } There is an action of $SL(2)$ on the fields, $S(L)$ such that $U(L,a) \phi(x) U(L,a)^{-1} = S(L) \phi(L^{-1}(x - a))$
+
+\item \fbox{Cyclic Vacuum: } The image of polynomials in $\phi_i(f)$ on $\ket{0}$ is dense in $X$.
+\end{enumerate}
+
+
+\end{frame}
+
+
+%===================
+% SLIDE 2
+%===================
+
+
+\begin{frame}
+
+\frametitle{Wightman Axioms}
+\framesubtitle{Microcausality Condition}
+
+\begin{enumerate}
+
+\item If $f,g \in \cat{S}$ have spacelike supports ($f(x) g(y) = 0$ for all $x,y$ with $d(x,y) \geq 0$) then $[\phi_i (f), \phi_j (g)]_{\pm}(v) = 0$ for all $v \in D$.
+
+%[spacelike is negative distance]
+
+\end{enumerate}
+
+\end{frame}
+
+
+
+
+
+
+%===================
+% SLIDE 2
+%===================
+
+
+
+
+\begin{frame}
+\frametitle{Hopf-Frobenius Wightman Axioms}
+%\framesubtitle{Relativistic Quantum Mechanics}
+
+A (weak) Hopf-Frobenius-Wightman QFT is a collection of Hopf algebras ($B(F_{\text{state}}), k SL(2)$)  and Frobenius algebras ($F_{\text{state}}, \cat{S}, \mathbb{R}^{1,3}$)  such that
+
+\begin{enumerate}
+
+
+\item \fbox{States and Evolution: } $(k SL(2),F_{\text{state}})$ forms a Hopf-Frobenius module.
+
+\item \fbox{Vacuum: } There is a unit $1 \in F_{\text{state}}$, which is the unique element preserved by $k SL(2)$.
+
+\item \fbox{Fields: } Quantum fields are linear maps $\cat{S} \to B(F_{\text{state}})$ and form a Frobenius algebra $F_{\text{field}}$.
+
+\item \fbox{Field Transformations: } $(k SL(2),F_{\text{field}})$ forms a Hopf-Frobenius module.
+
+
+
+
+
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Hopf-Frobenius Wightman Axioms}
+\framesubtitle{Other Conditions}
+
+\begin{enumerate}
+
+\item \fbox{Dense Subset: } We can view $F_{\text{state}}$ as all of $D$.
+
+
+\item \fbox{Cyclic Vacuum: } The image of polynomials in $\phi_i(f)$ on $\ket{0}$ is dense in $X$.
+
+
+\item \fbox{Spectral Condition: } We can write $U(1,a) = \exp(i P^{\mu} a_\mu)$ and the eigenvalues of $P$ satisfy $p_0^2 - \sum_{i=1}^3 p_i^2 > 0$ and $p^0 > 0$.
+
+
+\item \fbox{Causality: }  If $f,g \in \cat{S}$ have spacelike supports ($f(x) g(y) = 0$ for all $x,y$ with $d(x,y) \geq 0$) then $[\phi_i (f), \phi_j (g)]_{\pm}(v) = 0$ for all $v \in D$.
+
+
+\end{enumerate}
+\end{frame}
+
+
+
+
+\end{document}
+%
+%
+%
+%
+%
+%

@@ -1,0 +1,215 @@
+% shared/latex/custom-preamble.sty
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{custom-preamble}[2026/06/03 Monorepo Hardened Math Preamble]
+
+% ==========================================
+% 1. CORE GRAPHICS & STRUCTURAL LAYOUT
+% ==========================================
+\RequirePackage{graphicx}
+\RequirePackage{adjustbox}
+\RequirePackage{mdframed}
+\RequirePackage{fontawesome5} % Required for \faAsterisk, \faCube, \faLocationArrow
+
+% --- TikZ & Visuals ---
+\RequirePackage{tikz}
+\RequirePackage{tikz-cd}
+\RequirePackage[many]{tcolorbox}
+\tcbuselibrary{theorems}
+
+\RequirePackage{tabularx}
+% ==========================================
+% 2. MATH
+% ==========================================
+\RequirePackage{amsmath}
+\RequirePackage{mathtools}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{xparse}
+
+% ==========================================
+% 3. MACROS
+% ==========================================
+
+% --- Field Theory ---
+\newcommand{\exten}[2]{{#2}_{#1}}
+
+% --- Category Theory & Homotopy ---
+\newcommand{\colim}{\operatorname{colim}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\mor}[2]{\text{Mor}(#1, #2)}
+
+% --- Topological Space Operators ---
+\newcommand{\nbh}[1]{\mathcal{N}_{#1}}
+
+% --- Cryptic Math Object Glyphs ---
+\newcommand{\const}{\text{\faAsterisk}}
+\newcommand{\obj}{\text{\faCube}}
+\newcommand{\morph}{\text{\faLocationArrow}}
+
+% --- Layout & Utility Shorthands ---
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\newcommand{\newthought}[1]{\medskip\noindent\fbox{{#1}}}
+
+% --- Delimiter Scaling Mechanics ---
+\newcommand{\abs}[1]{\lvert #1 \rvert} % Using exact amsmath delimiters rather than standard pipes
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+
+
+%=================================
+% Colourblind-friendly colours
+%=================================
+
+
+% 6 Colour Attempt Feb 27, 2024
+
+
+\definecolor{lemmacolour}{RGB}{0, 0, 153}
+\definecolor{corolcolour}{RGB}{0, 0, 153}
+\definecolor{propcolour}{RGB}{138, 10,0}
+\definecolor{definitioncolour}{RGB}{100, 100, 100}
+\definecolor{examplecolour}{RGB}{62,217,141}
+\definecolor{conjecturecolour}{RGB}{235, 160, 215}
+\definecolor{theoremcolour}{RGB}{255, 240, 0}
+
+% %============================
+% % Theorem Environments (mdframed)
+% %============================
+
+% \newenvironment{proof-lemma}%
+%   {\begin{mdframed}[linewidth=3pt,topline=false,rightline=false,bottomline=false,linecolor=lemmacolour]\begin{proof}}%
+%   {\end{proof}\end{mdframed}}
+
+% \newenvironment{proof-prop}%
+%   {\begin{mdframed}[linewidth=3pt,topline=false,rightline=false,bottomline=false,linecolor=propcolour]\begin{proof}}%
+%   {\end{proof}\end{mdframed}}
+
+% \newenvironment{proof-theorem}%
+%   {\begin{mdframed}[linewidth=3pt,topline=false,rightline=false,bottomline=false,linecolor=theoremcolour]\begin{proof}}%
+%   {\end{proof}\end{mdframed}}
+
+% \newenvironment{proof-corol}%
+%   {\begin{mdframed}[linewidth=3pt,topline=false,rightline=false,bottomline=false,linecolor=corolcolour]\begin{proof}}%
+%   {\end{proof}\end{mdframed}}
+
+% \newenvironment{defframe}%
+%   {\begin{mdframed}[linewidth=3pt,topline=false,rightline=false,bottomline=false,linecolor=definitioncolour]}%
+%   {\end{mdframed}}
+
+% \newenvironment{exampleframe}%
+%   {\begin{mdframed}[linewidth=3pt,topline=false,rightline=false,bottomline=false,linecolor=examplecolour]}%
+%   {\end{mdframed}}
+
+% \newenvironment{conjecframe}%
+%   {\begin{mdframed}[linewidth=3pt,topline=false,rightline=false,bottomline=false,linecolor=conjecturecolour]}%
+%   {\end{mdframed}}
+
+% %==============================================
+% % Theorems v.2 (tcolorbox)
+% %==============================================
+
+% \newtcbtheorem[%
+% number within=section
+% ]{definition}{Definition}
+% {colback=definitioncolour!5,
+%   colbacktitle=definitioncolour,
+%   fonttitle=\bfseries,
+%   sharp corners,
+%   boxrule=0pt,
+%   breakable
+% }{def}
+
+% \newtcbtheorem[%
+% number within=section,
+% use counter from=definition
+% ]{lemma}{Lemma}%
+% {colback = lemmacolour!5,
+%   colbacktitle = lemmacolour!95!black,
+%   fonttitle=\bfseries,
+%   sharp corners,
+%   boxrule=0pt,
+%   breakable
+% }{lem}
+
+\newtcbtheorem[%
+% number within=section,
+% use counter from=definition
+]{proposition}{Proposition}%
+{colback=propcolour!5,
+  colbacktitle=propcolour,
+  fonttitle=\bfseries,
+  sharp corners,
+  boxrule=0pt,
+  breakable
+}{prop}
+
+% \newtcbtheorem[%
+% number within=section,
+% use counter from=definition
+% ]{corollary}{Corollary}%
+% {colback=corolcolour!5,
+%   colbacktitle=corolcolour!95!black,
+%   fonttitle=\bfseries,
+%   sharp corners,
+%   boxrule=0pt,
+%   breakable
+% }{coro}
+
+% \newtcbtheorem[%
+% number within=section,
+% use counter from=definition
+% ]{example}{Example}%
+% {colback=examplecolour!5,
+%   colbacktitle=examplecolour,
+%   coltitle=black,
+%   fonttitle=\bfseries,
+%   sharp corners,
+%   boxrule=0pt,
+%   breakable
+% }{ex}
+
+% \newtcbtheorem[%
+% number within=section,
+% use counter from=definition
+% ]{conjecture}{Conjecture}%
+% {colback=conjecturecolour!5,
+%   colbacktitle=conjecturecolour,
+%   coltitle=black,
+%   fonttitle=\bfseries,
+%   sharp corners,
+%   boxrule=0pt,
+%   breakable
+% }{conj}
+
+% \newtcbtheorem[%
+% number within=section,
+% use counter from=definition
+% ]{theorem}{Theorem}%
+% {colback=theoremcolour!5,
+%   colbacktitle=theoremcolour,
+%   coltitle=black,
+%   fonttitle=\bfseries,
+%   sharp corners,
+%   boxrule=0pt,
+%   breakable
+% }{thm}
+
+% % Unified Cleveref Namespaces
+% \crefname{tcb@cnt@definition}{definition}{definitions}
+% \crefname{tcb@cnt@lemma}{lemma}{lemmas}
+% \crefname{tcb@cnt@proposition}{proposition}{propositions}
+% \crefname{tcb@cnt@corollary}{corollary}{corollaries}
+% \crefname{tcb@cnt@example}{example}{examples}
+% \crefname{tcb@cnt@conjecture}{conjecture}{conjectures}
+% \crefname{tcb@cnt@theorem}{theorem}{theorems}
+
+% ==========================================
+% 4. HYPERLINKS & REFERENCE INJECTION (STRICT ORDER)
+% ==========================================
+% \RequirePackage[colorlinks=true, linkcolor=blue, citecolor=blue]{hyperref}
+% \RequirePackage[nameinlink]{cleveref}
+
+\endinput
+

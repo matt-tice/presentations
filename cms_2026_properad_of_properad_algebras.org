@@ -1,161 +1,99 @@
 #+TITLE: A (Pr)operad of (Pr)operad Algebras
 #+AUTHOR: Matt Alexander
-#+DATE: June 5, 2028
+#+DATE: June 6, 2026
 #+EMAIL: mpa097@uregina.ca
-#+OPTIONS: H:2 toc:nil
+#+OPTIONS: H:1 toc:nil
 #+LATEX_CLASS: beamer
 #+LATEX_CLASS_OPTIONS: [presentation]
-#+BEAMER_THEME:themes/queer
-#+COLUMNS: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
-
-* Section Divider
-
-
-*
-** Definition: Operads
-
-\adjustbox{center}{
-\begin{tikzpicture}
-  \node {$H$}
-    child {node {$\mu$}
-    		child {node {$H$}}
-    		child {node {$H$}}
-    	};
-\end{tikzpicture}
-\quad
-\raisebox{6pt}{
-\begin{tikzpicture}
-  \node {$H$}
-    child {node {$\eta$}
-    		child {[fill] circle (2pt)}
-    	};
-\end{tikzpicture}}
-\quad
-\begin{tikzpicture}
-  \node {$H$} [grow'=up]
-    child {node {$\Delta$}
-    		child {node {$H$}}
-    		child {node {$H$}}
-    	};
-\end{tikzpicture}
-\quad
-\begin{tikzpicture}[grow'=up]
-  \node {$H$}
-    child {node {$\varepsilon$}
-    		child {[fill] circle (2pt)}
-    	};
-\end{tikzpicture}
-\quad
-\begin{tikzpicture}
-  \node {$H$}
-    child {node {$S$}
-    		child {node {$H$}}
-    	};
-\end{tikzpicture}
-}
+#+LaTeX_HEADER: \makeatletter\def\input@path{{./}{./shared/}{./shared/themes/}}\makeatother
+#+LaTeX_HEADER: \usepackage{beamerthemequeer}
+#+LaTeX_HEADER: \usepackage{shared-preamble}
 
 
-** Definition: Properads
-
-\adjustbox{center}{
-\begin{tikzpicture}
-  \node {$H$}
-    child {node {$\mu$}
-    		child {node {$H$}}
-    		child {node {$H$}}
-    	};
-\end{tikzpicture}
-\quad
-\raisebox{6pt}{
-\begin{tikzpicture}
-  \node {$H$}
-    child {node {$\eta$}
-    		child {[fill] circle (2pt)}
-    	};
-\end{tikzpicture}}
-\quad
-\begin{tikzpicture}
-  \node {$H$} [grow'=up]
-    child {node {$\Delta$}
-    		child {node {$H$}}
-    		child {node {$H$}}
-    	};
-\end{tikzpicture}
-\quad
-\begin{tikzpicture}[grow'=up]
-  \node {$H$}
-    child {node {$\varepsilon$}
-    		child {[fill] circle (2pt)}
-    	};
-\end{tikzpicture}
-\quad
-\begin{tikzpicture}
-  \node {$H$}
-    child {node {$S$}
-    		child {node {$H$}}
-    	};
-\end{tikzpicture}
-}
 
 
-** Operad of Operad Algebras
+* Main Results
 
 
-#+begin_prop{The Operad of Operad Algebras}{operad-of-operad-alg-gen}
-Let $\mathcal{V}$ be a symmetric monoidal category with all small coproducts and let $\mathcal{O}$ be a coloured operad in $\mathcal{V}$. For any small category, $\mathcal{C}$, there exists an operad $\mathcal{O}^{\mathcal{C}}$ in $\mathcal{V}$ whose algebras are the functors 
+\begin{proposition}{The Operad of Operad Algebras}{operad-of-operad-alg-gen}
+Let $\mathcal{V}$ be a symmetric monoidal category with all small coproducts such that the monoidal product distributes over all \emph{finite} coproducts, and let $\mathcal{O}$ be a coloured operad in $\mathcal{V}$. Then for any small category, $\mathcal{C}$, there exists an operad $\mathcal{O}^{\mathcal{C}}$ in $\mathcal{V}$ whose algebras are the functors 
 \begin{equation*}
 F: \mathcal{C} \to \mathcal{O} \text{-Alg}.
 \end{equation*}
-#+end_prop
+\end{proposition}
 
-#+begin_prop{Properad of Properad Algebras}{prop-of-prop-algs}
-Let $\mathcal{P}$ be a coloured properad in a closed monoidal category with all small coproducts $\mathcal{V}$. For any small category $\mathcal{C}$, there exists a properad $\mathcal{P}^{\mathcal{C}}$ whose algebras are the functors
+* Main Results (Properad Version)
+
+\begin{proposition}{Properad of Properad Algebras}{prop-of-prop-algs}
+Let $\mathcal{P}$ be a coloured properad in a closed monoidal category with all small coproducts $\mathcal{V}$, where the monodial product distributes over all \emph{finite} coproducts. For any small category $\mathcal{C}$, there exists a properad $\mathcal{P}^{\mathcal{C}}$ whose algebras are the functors
 \begin{equation*}
 F: \mathcal{C} \to \mathcal{P}\text{-Alg}.
 \end{equation*}
-#+end_prop
+\end{proposition}
+
+* Generators and Relations
+
+\newthought{Between objects in $\mathcal{C}$: }
+\[
+\mathcal{O}^{\mathcal{C}}_{\text{gen}}[A_{\alpha} \mid B_{\alpha}] = \bigsqcup_{f: A \to B} I
+\]
+when $A \ne B$.
+
+\newthought{Copies of $\mathcal{O}^{\mathcal{C}}$: }
+\[
+\mathcal{O}^{\mathcal{C}}_{\text{gen}}[A_{\alpha_{1}} \ldots A_{\alpha_{n}} \mid A_{\beta}] = \mathcal{O}[\alpha_{1} \ldots \alpha_{n}]
+\]
+=Endomorphisms:= 
+\[
+\mathcal{O}^{\mathcal{C}}_{\text{gen}}[A_{\alpha} \mid A_{\alpha}] = \mathcal{O}[\alpha \mid \alpha] \sqcup \bigsqcup_{f: A \to A} I
+\]
 
 
-** Precursors
+* Explicit Form (infinitary distributivity)
 
-*** /Coloured Operads/, Yau (2017)
+In the case that $\otimes$ distributes over /all small coproducts/
+\[
+\mathcal{O}^{\mathcal{C}}[\bar{A}_{\bar{\alpha}} \mid B_{\beta}] = \coprod_{f^i: A^i \to B} \mathcal{O}[\bar{\alpha} \mid \beta]
+\]
+
+* Precursors
+
+** /Coloured Operads/, Yau (2017)
 
 - The construction of $\mathcal{O}^{\mathcal{C}}$ is left as an exercise.
 
-*** /Operads for algebraic quantum field theory/, Benini, Schenkel, Woike (2021)
+\bigskip
+
+** /Operads for algebraic quantum field theory/, Benini, Schenkel, Woike (2021)
 
 
-- $\mathcal{O}^{\mathcal{C}}$ is constructed in the case that $\mathcal{O}$ is the associative operad.
-
-** Orthogonal Categories
-
-Let $\mathcal{C}$ be a small category. An \Def{orthogonality relation} $\perp$ on $\mathcal{C}$ is a relation on pairs of morphisms in $\mathcal{C}$ such that if $f \perp g$
-then $f$ and $g$ have the same codomain, and required to satisfy
-\begin{itemize}
-\item If $f \perp g$ then $g \perp f$.
-
-\item If $g \perp h$ then $fg \perp fh$ for all composable $f$.
-
-\item If $g_1 \perp g_2$ then $g_1 h \perp g_2 k$ for all composable $h,k$.
-\end{itemize}
-
-\medskip
-
-An \Def{orthogonal category} is a small category $\mathcal{C}$ with an orthogonality relation $\perp$.
+- $\mathcal{O}^{\mathcal{C}}$ is constructed in the case that $\mathcal{O}$ is the associative operad:
+\[
+\operatorname{Assoc}^{\mathcal{C}}
+\]
 
 
-** Properad of Laplace Hopf AQFTs
+* Orthogonal Categories
 
+** Definition
 
-# \footnotetext{AQFTs were introduced in \textit{An algebraic approach to quantum field theory} Haag and Kastler (1964).}
+Let $\mathcal{C}$ be a small category. An /orthogonality relation/ $\perp$ on $\mathcal{C}$ is a relation on pairs of morphisms in $\mathcal{C}$ such that if $f \perp g$
+then $f$ and $g$ have the /same codomain/, and are required to satisfy
 
-Let $(\mathcal{C}, \perp)$ be an orthogonal category. A \Def{Laplace Hopf algebraic quantum field theory} is a functor
-\begin{align*}
-F: \mathcal{C} \to \mathcal{LB}(\mathcal{V})
-\end{align*}
-where $\mathcal{LB}(\mathcal{V})$ is the category of Laplace bialgebras on a symmetric monoidal category $\mathcal{V}$, such that the following \textbf{causality diagram} commutes:
+- If $f \perp g$ then $g \perp f$.
 
-\medskip
+- If $g \perp h$ then $fg \perp fh$ for all composable $f$.
+
+- If $g_1 \perp g_2$ then $g_1 h \perp g_2 k$ for all composable $h,k$.
+
+\bigskip 
+An /orthogonal category/ is a small category $\mathcal{C}$ with an orthogonality relation $\perp$.
+
+=Intuition:= $f \perp g$ means that the regions corresponding to $f$ and $g$ are /causally disjoint/
+
+* Causality
+
+In order to be a physical theory, an AQFT must satisfy the /causality condition/:
 
 \begin{center}
 \begin{tikzcd}[ampersand replacement=\&]
@@ -164,61 +102,102 @@ F(C) \otimes F(C) \arrow[rr, swap, "\mu"]  \& \& F(C)
 \end{tikzcd}
 \end{center}
 
-\medskip 
+\bigskip
 
 whenever $f \perp g$.
 
 
 
+* Introducing Homotopy
+
+- Homotopy allows us to capture gauge theories
+- Most common approaches: bar-cobar (ex. chain complexes), W-construction
+
+\bigskip
+
+** Homotopy Quantum Field Theory, Yau (2019)
 
 
-** My construction is functorial in O
+- Wraps the entire QFT in homotopy:
+\[
+W(\operatorname{Assoc}^{\mathcal{C}})
+\]
 
-** Introducing Homotopy
 
-we can't use lurie's approach, because it's based on a quasi-categorical notion of infinity operads (cocartesian fibrations)
+* Pointwise A_{\infty}-algebras
 
-but we can use
+Picking out a monoid at any point in the category $\mathcal{C}$
+\[
+\operatorname{Assoc} \to \mathcal{O}^{\mathcal{C}}
+\]
+induces an adjunction
+\[
+\operatorname{Alg}(\operatorname{Assoc}_{\infty}) \rightleftarrows \operatorname{Alg}(W(\mathcal{\operatorname{Assoc}}^{\mathcal{C}})),
+\]
+which picks out the corresponding $A_{\infty}$-algebra at that object.
 
-** Strict dg-Operads
+* Pointwise A_{\infty}-algebras 
 
-Work over chain complexes
+Using the $\mathcal{O}^{\mathcal{C}}$ construction, we can create a model for AQFTs of the form
+\[
+\operatorname{Assoc}_{\infty}^{{\mathcal{C}}}.
+\]
+This gives us finer control over the homotopy /in the algebras/.
 
-Take the bar-cobar resolution
-
-** Simplicial Operads
-
-Take sSet and use the BV resolution
-
-** Other
-
-Moving outside of bar-cobar and bv, is necessary when you need to encode loops, coperadic things, non-augmented symmetries, or non-flat geometry
-
-*** Sheaves
+\bigskip
 
 ** Properads
 
-the bar construction doesn't work for them
+Structures like Hopf algebras, L_{\infty}-bialgebras, and quantum groups are /properadic/.
+- We can take our properadic construction and then inject homotopy through
+       - Vallette's Properadic Koszul Duality
+       - Kontsevich's Graph Complexes
 
-we can actually handle things like L_{\infty}-bialgebras, quantum groups
+* Hopf-Laplace Algebras
 
-*** Vallette's Properadic Koszul Duality
+A /Hopf algebra/ is a unital associative $k$-algebra, $H$, with maps 
 
-*** Kontsevich's Graph Complexes
+\medskip
 
+- \fbox{Comultiplication: } $\Delta: H \to H \otimes H$
 
-* You can take colimits in C
+- \fbox{Counit: } $\varepsilon: H \to k$
 
+- \fbox{Antipode: } An involution $S: H \to H$
 
-If you want to compute the local-to-global behavior of your field theory, you are computing the Left Kan Extension of your algebra functor along the embedding of local patches into the global space.
+\bigskip
 
-"If you resolve a sheaf of observables using traditional point-wise Bar-Cobar or BV resolutions, the free generation of higher cells destroys the local gluing laws. Our construction avoids this homological collapse. By keeping the kinematic operad $\mathcal{O}$ completely strict and global, and routing all topological gluing parameters through the indexing category $\mathcal{C}$, the distribution of $\otimes$ over $\coprod$ guarantees that the operadic structure commutes with geometric localization. We achieve homotopy-coherent descent on the fields without destroying the strict geometric architecture of the spacetime network."
+satisfying the appropriate compatibility conditions between the algebraic and coalgebraic structure.
 
+A /Laplace pairing/ on a Hopf algebra is a bilinear form $\gen{\cdot, \cdot}: H \otimes H \to k$ satisfying
 
+\[
+\gen{x, yz} = \sum \gen{x_{(1)}, y} \gen{x_{(2)}, z}
+\]
+\[
+\gen{xy, z} = \sum \gen{x, z_{(1)}} \gen{y, z_{(2)}}
+\]
+\[
+\gen{1, x} = \gen{x, 1} = \varepsilon(1)
+\]
 
-* Enriched Categories
+=Intuition:= Laplace pairings behave like /correlation functions/ from quantum field theory!
 
-Consider a symmetric monoidal category $\mathcal{V}$ with all small coproducts, such that $\otimes$ distributes over finite coproducts. Let $\mathcal{C}$ be enriched in $\mathcal{V}$ and let $\mathcal{O}$ be a $\mathcal{V}$-operad.
+* Properad of Laplace Hopf AQFTs
+
+Let $(\mathcal{C}, \perp)$ be an orthogonal category. A /Laplace Hopf algebraic quantum field theory/ is a functor
+\begin{align*}
+F: \mathcal{C} \to \mathcal{LB}(\mathcal{V})
+\end{align*}
+where $\mathcal{LB}(\mathcal{V})$ is the category of Laplace bialgebras on a symmetric monoidal category $\mathcal{V}$, such that the following \textbf{causality diagram} commutes:
+
+\begin{center}
+\begin{tikzcd}[column sep = 3cm, ampersand replacement=\&]
+F(A)^{\otimes m} \otimes F(B)^{\otimes n} \ar[r, "F(f)^{\otimes m} \otimes F(g)^{\otimes n}"] \ar[d, swap, "\gen{-,-}_m \otimes \gen{-,-}_n"] \& F(C)^{\otimes m} \otimes F(C)^{\otimes n} \ar[d, "\gen{-,-}_{m + n}"] \\
+k \otimes k \ar[r, swap, "\mu_k"]  \& k 
+\end{tikzcd}
+\end{center}
+commutes whenever $f: A \to C$ and $g: B \to C$ satisfy $f \perp g$, where $\gen{-,-}_{m+n}$ is the (m+n)-arity correlation function on $F(C)$.
 
 
 

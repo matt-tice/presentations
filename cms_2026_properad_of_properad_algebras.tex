@@ -1,0 +1,184 @@
+% Created 2026-06-04 Thu 23:01
+% Intended LaTeX compiler: pdflatex
+\documentclass[presentation]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\makeatletter\def\input@path{{./}{./shared/}{./shared/themes/}}\makeatother
+\usepackage{beamerthemequeer}
+\usepackage{shared-preamble}
+\usetheme{default}
+\author{Matt Alexander}
+\date{June 6, 2026}
+\title{A (Pr)operad of (Pr)operad Algebras}
+\hypersetup{
+ pdfauthor={Matt Alexander},
+ pdftitle={A (Pr)operad of (Pr)operad Algebras},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 30.1 (Org mode 9.7.11)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\begin{frame}[label={sec:orgedebb86}]{Main Results}
+\begin{proposition}{The Operad of Operad Algebras}{operad-of-operad-alg-gen}
+Let $\mathcal{V}$ be a symmetric monoidal category with all small coproducts such that the monoidal product distributes over all \emph{finite} coproducts, and let $\mathcal{O}$ be a coloured operad in $\mathcal{V}$. Then for any small category, $\mathcal{C}$, there exists an operad $\mathcal{O}^{\mathcal{C}}$ in $\mathcal{V}$ whose algebras are the functors 
+\begin{equation*}
+F: \mathcal{C} \to \mathcal{O} \text{-Alg}.
+\end{equation*}
+\end{proposition}
+\end{frame}
+\begin{frame}[label={sec:orgc734555}]{Main Results (Properad Version)}
+\begin{proposition}{Properad of Properad Algebras}{prop-of-prop-algs}
+Let $\mathcal{P}$ be a coloured properad in a closed monoidal category with all small coproducts $\mathcal{V}$, where the monodial product distributes over all \emph{finite} coproducts. For any small category $\mathcal{C}$, there exists a properad $\mathcal{P}^{\mathcal{C}}$ whose algebras are the functors
+\begin{equation*}
+F: \mathcal{C} \to \mathcal{P}\text{-Alg}.
+\end{equation*}
+\end{proposition}
+\end{frame}
+\begin{frame}[label={sec:org0c6026d},fragile]{Generators and Relations}
+ \newthought\{Between objects in \(\mathcal{C}\): \}
+\[
+\mathcal{O}^{\mathcal{C}}_{\text{gen}}[A_{\alpha} \mid B_{\alpha}] = \bigsqcup_{f: A \to B} I
+\]
+when \(A \ne B\).
+
+\newthought\{Copies of \(\mathcal{O}^{\mathcal{C}}\): \}
+\[
+\mathcal{O}^{\mathcal{C}}_{\text{gen}}[A_{\alpha_{1}} \ldots A_{\alpha_{n}} \mid A_{\beta}] = \mathcal{O}[\alpha_{1} \ldots \alpha_{n}]
+\]
+\newthought{Endomorphisms: } 
+\[
+\mathcal{O}^{\mathcal{C}}_{\text{gen}}[A_{\alpha} \mid A_{\alpha}] = \mathcal{O}[\alpha \mid \alpha] \sqcup \bigsqcup_{f: A \to A} I
+\]
+\end{frame}
+\begin{frame}[label={sec:org7ca90df}]{Explicit Form (infinitary distributivity)}
+In the case that \(\otimes\) distributes over \emph{all small coproducts}
+\[
+\mathcal{O}^{\mathcal{C}}[\bar{A}_{\bar{\alpha}} \mid B_{\beta}] = \coprod_{f^i: A^i \to B} \mathcal{O}[\bar{\alpha} \mid \beta]
+\]
+\end{frame}
+\begin{frame}[label={sec:org0fe3717}]{Precursors}
+\begin{block}{\emph{Coloured Operads}, Yau (2017)}
+\begin{itemize}
+\item The construction of \(\mathcal{O}^{\mathcal{C}}\) is left as an exercise.
+\end{itemize}
+
+\bigskip
+\end{block}
+\begin{block}{\emph{Operads for algebraic quantum field theory}, Benini, Schenkel, Woike (2021)}
+\begin{itemize}
+\item \(\mathcal{O}^{\mathcal{C}}\) is constructed in the case that \(\mathcal{O}\) is the associative operad:
+\end{itemize}
+\[
+\operatorname{Assoc}^{\mathcal{C}}
+\]
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:orgdfe2e91},fragile]{Orthogonal Categories}
+ \begin{block}{Definition}
+Let \(\mathcal{C}\) be a small category. An \emph{orthogonality relation} \(\perp\) on \(\mathcal{C}\) is a relation on pairs of morphisms in \(\mathcal{C}\) such that if \(f \perp g\)
+then \(f\) and \(g\) have the \emph{same codomain}, and are required to satisfy
+
+\begin{itemize}
+\item If \(f \perp g\) then \(g \perp f\).
+
+\item If \(g \perp h\) then \(fg \perp fh\) for all composable \(f\).
+
+\item If \(g_1 \perp g_2\) then \(g_1 h \perp g_2 k\) for all composable \(h,k\).
+\end{itemize}
+
+\bigskip 
+An \emph{orthogonal category} is a small category \(\mathcal{C}\) with an orthogonality relation \(\perp\).
+
+\newthought{Intuition: } \(f \perp g\) means that the regions corresponding to \(f\) and \(g\) are \emph{causally disjoint}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org4db4b31}]{Causality}
+In order to be a physical theory, an AQFT must satisfy the \emph{causality condition}:
+
+\begin{center}
+\begin{tikzcd}[ampersand replacement=\&]
+F(A) \otimes F(B) \arrow[r, "F(f) \otimes F(g)"] \arrow[d, swap, "F(f) \otimes F(g)"] \& F(C) \otimes F(C) \arrow[r, "\tau"] \& F(C) \otimes F(C) \arrow[d, "\mu"] \\
+F(C) \otimes F(C) \arrow[rr, swap, "\mu"]  \& \& F(C)
+\end{tikzcd}
+\end{center}
+
+\bigskip
+
+whenever \(f \perp g\).
+\end{frame}
+\begin{frame}[label={sec:org9287a6d}]{Introducing Homotopy}
+\begin{itemize}
+\item Homotopy allows us to capture gauge theories
+\item Most common approaches: bar-cobar (ex. chain complexes), W-construction
+\end{itemize}
+
+\bigskip
+\begin{block}{Homotopy Quantum Field Theory, Yau (2019)}
+\begin{itemize}
+\item Wraps the entire QFT in homotopy:
+\end{itemize}
+\[
+W(\operatorname{Assoc}^{\mathcal{C}})
+\]
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org2ba2175}]{Pointwise A\textsubscript{\(\infty\)}-algebras}
+Picking out a monoid at any point in the category \(\mathcal{C}\)
+\[
+\operatorname{Assoc} \to \mathcal{O}^{\mathcal{C}}
+\]
+induces an adjunction
+\[
+\operatorname{Alg}(\operatorname{Assoc}_{\infty}) \rightleftarrows \operatorname{Alg}(W(\mathcal{\operatorname{Assoc}}^{\mathcal{C}})),
+\]
+which picks out the corresponding \$A\textsubscript{\(\infty\)}\$-algebra at that object.
+\end{frame}
+\begin{frame}[label={sec:org0fe772c}]{Pointwise A\textsubscript{\(\infty\)}-algebras}
+Using the \(\mathcal{O}^{\mathcal{C}}\) construction, we can create a model for AQFTs of the form
+\[
+\operatorname{Assoc}_{\infty}^{{\mathcal{C}}}.
+\]
+This gives us finer control over the homotopy \emph{in the algebras}.
+
+\bigskip
+\begin{block}{Properads}
+Structures like Hopf algebras, L\textsubscript{\(\infty\)}-bialgebras, and quantum groups are \emph{properadic}.
+\begin{itemize}
+\item We can take our properadic construction and then inject homotopy through
+\begin{itemize}
+\item Vallette's Properadic Koszul Duality
+\item Kontsevich's Graph Complexes
+\end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+\begin{frame}[label={sec:org1182c94}]{Hopf-Laplace Algebras}
+\end{frame}
+
+\begin{frame}[label={sec:orge51f994}]{Properad of Laplace Hopf AQFTs}
+Let \((\mathcal{C}, \perp)\) be an orthogonal category. A \emph{Laplace Hopf algebraic quantum field theory} is a functor
+\begin{align*}
+F: \mathcal{C} \to \mathcal{LB}(\mathcal{V})
+\end{align*}
+where \(\mathcal{LB}(\mathcal{V})\) is the category of Laplace bialgebras on a symmetric monoidal category \(\mathcal{V}\), such that the following \textbf{causality diagram} commutes:
+
+\begin{center}
+\begin{tikzcd}[column sep = 3cm, ampersand replacement=\&]
+F(A)^{\otimes m} \otimes F(B)^{\otimes n} \ar[r, "F(f)^{\otimes m} \otimes F(g)^{\otimes n}"] \ar[d, swap, "\gen{-,-}_m \otimes \gen{-,-}_n"] \& F(C)^{\otimes m} \otimes F(C)^{\otimes n} \ar[d, "\gen{-,-}_{m + n}"] \\
+k \otimes k \ar[r, swap, "\mu_k"]  \& k 
+\end{tikzcd}
+\end{center}
+commutes whenever \(f: A \to C\) and \(g: B \to C\) satisfy \(f \perp g\), where \(\gen{-,-}_{m+n}\) is the (m+n)-arity correlation function on \(F(C)\).
+\end{frame}
+\end{document}

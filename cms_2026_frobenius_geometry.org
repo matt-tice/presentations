@@ -1,0 +1,218 @@
+#+TITLE: Hopf-Frobenius Gauge Theories
+#+AUTHOR: Matt Alexander
+#+DATE: June 6, 2026
+#+EMAIL: mpa097@uregina.ca
+#+OPTIONS: H:1 toc:nil
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [presentation]
+#+LaTeX_HEADER: \makeatletter\def\input@path{{./}{./shared/}{./shared/themes/}}\makeatother
+#+LaTeX_HEADER: \usepackage{beamerthemequeer}
+#+LaTeX_HEADER: \usepackage{shared-preamble}
+
+* Frobenius Algebras
+
+** Definitions
+
+A /(generalized) Frobenius algebra/ $(F, \gen{\cdot, \cdot})$, is a not-necessarily associative nor unital algebra $F$, with non-degenerate bilinear form $\gen{\cdot, \cdot}: F \otimes F \to k$, such that
+\[
+\gen{xy,z} = \gen{x,y z}
+\]
+for all $x,y,z \in F$.
+
+=Classical case:= Restricts to finite-dimensional algebras
+- Can define them in terms of compatible algebraic-coalgebraic structure.
+
+=Integrals:= We think of Frobenius algebras as generalizing algebras of integrable functions
+
+
+* Frobenius Algebras
+:PROPERTIES:
+:beamer_subtitle: Examples
+:END:
+
+#+LaTeX: {\renewcommand{\arraystretch}{2.0}
+#+ATTR_LATEX: :environment tabularx :width \textwidth :align lXXX
+|                         | \shortstack[l]{Frobenius \\  Algebra} | Pairing                 | Multiplication              |
+|-------------------------+---------------------------------------+-------------------------+-----------------------------|
+| Compact supp.           | $C_c^{\infty}(\mathbb{R}^{n})$        | $\int fg$               | Pointwise                   |
+| Schwartz func.          | $\mathcal{S}(\mathbb{R}^{n})$         | $\int fg$               | Pointwise                   |
+| Hilb sp. (+ basis)      | $(H, \gen{\cdot, \cdot} \{e_i \})$    | $\gen{x, y}$            | $e_i e_j = \delta_{ij} e_i$ |
+| Minkowksi sp. (+ basis) | $(\mathbb{R}^{4}, \eta, \{e_i \})$    | $\eta^{ij} x_{i} x_{j}$ | $e_i e_j = \eta^{ij} e_{i}$    |
+
+
+#+LaTeX: }
+
+* Hopf Algebras
+
+** Definition
+
+A Hopf algebra is a unital associative $k$-algebra, $H$, with maps 
+
+\medskip
+
+- \fbox{Comultiplication: } $\Delta: H \to H \otimes H$
+
+- \fbox{Counit: } $\varepsilon: H \to k$
+
+- \fbox{Antipode: } An involution $S: H \to H$
+
+\bigskip
+
+satisfying the appropriate compatibility conditions between the algebraic and coalgebraic structure.
+
+
+#+LaTeX: {\renewcommand{\arraystretch}{1.8}
+#+ATTR_LATEX: :environment tabularx :width \textwidth :align lXXX
+|             | \shortstack{Hopf \\Algebra} | Comult.                               | Counit               |
+|-------------+-----------------------------+---------------------------------------+----------------------|
+| Group algs. | $kG$                        | $\Delta g = g \otimes g$              | $\varepsilon(g) = 1$ |
+| UE algs.    | $U[\mathfrak{g}]$           | $\Delta p = 1 \otimes p + p \otimes1$ | $\varepsilon(p) = 0$ |
+#+LaTeX: }
+
+* Hopf-Frobenius Modules
+
+A left /Hopf-Frobenius module/ is a pair $(H,F)$ where $H$ is a Hopf algebra, $F$ is a Frobenius algebra and $F$ is a left $H$-module, such that the following conditions are satisfied:
+
+\bigskip
+
+- \fbox{Weak Cartan: }  $\sum \gen{g_{(1)} \cdot x, g_{(2)} \cdot y} = \varepsilon(g) \gen{x,y}$
+
+- \fbox{Antipode Condition: }  $\gen{S(g) \cdot x, y} = \gen{x, g \cdot y}$
+
+
+#+LaTeX: {\renewcommand{\arraystretch}{1.5}
+#+ATTR_LATEX: :environment tabularx :width \textwidth :align lXXX
+|          | Hopf                    | Frobenius      | Weak Cartan                                                                         |
+|----------+-------------------------+----------------+-------------------------------------------------------------------------------------|
+| Fields   | $U[\operatorname{Der}]$ | Schwartz       | $d(fg) = (df)g + f(dg)$                                                             |
+| Geometry | $k\Lambda$              | Minkowski      | $\eta^{ij}\Lambda^{k}_{i}\Lambda^{\ell}_{j} x_{k }y_{\ell} = \eta^{ij} x_{i} y_{j}$ |
+| Gauge    | $kG$                    | Appropriate VS | $\gen{g\cdot x, g\cdot y} = \gen{x, y}$                                             |
+#+LaTeX: }
+
+* Exterior Derivatives and Connections
+
+** Definitions
+
+Let $F_{1}, F_{2}$ be Frobenius algebras, $\{e_i\}_{i \in I}$ be a basis for $F_2$, and let $\{ \partial_i : F_{1} \to F_1 \}_{i \in I}$ be a collection of derivations on $F_1$ indexed by the basis of $F_2$. 
+The  /exterior derivative/ of $f$ with respect to the basis $\{ e_i \}$ and derivations $\{\partial_i \}$ is the map 
+$$d: F_1 \to F_1 \otimes F_{2}$$
+defined by
+\[
+df = \sum_i \partial_i f \otimes e_i
+\]
+for all f \in F_1.
+
+=Intuition:= $F_1$ is a Frobenius algebra of functions, and $F_2$ is a vector space encoding direction. The algebra $F_1 \otimes F_2$ plays the role of Kähler differentials $\Omega^1(F_1)$
+
+* Connections and Directional Derivatives
+
+** Definition
+Let $F_{1}$ be a fixed Frobenius algebra. 
+Given a Frobenius algebra $F_3$, an $F_1$-/connection on $F_3$/ is a choice of Frobenius algebra $F_{2}$ and linear morphism 
+\[
+\nabla: F_{3} \to F_1 \otimes F_2 \otimes F_3.
+\]
+
+\bigskip
+
+When $F_1$ and $F_3$ are clear, we will simply refer to $\nabla$ as the connection.
+
+** Definition
+
+Let $\nabla: F_3 \to F_1 \otimes F_2 \otimes F_3$ be a connection, and $d: F_1 \to F_1 \otimes F_2$ be an exterior derivative. The /covariant derivative with respect to $\nabla$/ is the map $D_\nabla: F_1 \otimes F_3 \to F_1 \otimes F_2 \otimes F_3$ defined by
+\[
+D_{\nabla} (f \otimes\theta)= df \otimes \theta + (f \otimes 1 \otimes 1) \nabla\theta
+\]
+
+
+* Physics Examples
+
+We consider the Frobenius algebras 
+
+\bigskip
+
+=Functions:= $F_f = \mathcal{S}(\mathbb{R}^4)$
+
+\bigskip
+
+=Spacetime:= $F_{ST} = (\mathbb{R}^{4}, \eta)$
+
+\bigskip
+
+=Gauge:= $F_G = (V, \gen{\cdot, \cdot})$
+
+
+* Connections on Spacetime
+
+A /connection on spacetime/ has the form
+\begin{align*}
+\nabla: F_{ST} \to F_f \otimes F_{ST} \otimes F_{ST}.
+\end{align*}
+If we take $F_{ST} = \mathbb{R}^4$,
+\[
+\nabla e_j = \sum_{ik} \Gamma_{ij}^k(x) \otimes e_i \otimes e_k.
+\]
+The functions $\Gamma_{ij}^k(x)$ are the /Christoffel symbols/.
+
+
+=Covariant derivative:= 
+\begin{align*}
+D_\nabla f &= df + \sum_i f_i \otimes \nabla e_i \\
+&= \sum_{ij} \partial_j f_i \otimes e_j \otimes e_i + \sum_{ijk} f_i(x) \Gamma_{ji}^k (x) \otimes e_j \otimes e_k.
+\end{align*}
+
+* Connections on Spacetime
+
+Apply the bilinear form to the second tensor factor:
+
+=Directional derivative:= 
+\begin{equation*}
+\gen{v,D_\nabla f}_2 = \sum_{ij} v_j \partial_j f_i \otimes e_i + \sum_{ijk} \Gamma^k_{ji} v_j f_i \otimes e_k,
+\end{equation*}
+
+\bigskip
+
+The covariant and directional derivatives match those from differential geometry.
+
+
+* Gauge Connections
+
+A /gauge connection/ has the form
+\begin{align*}
+\nabla: F_{G} \to F_f \otimes F_{ST} \otimes F_{G}.
+\end{align*}
+
+Let $\{ e_i \}$ be a basis for $F_{ST}$ and $\{ \theta_j \}$ be a basis for $F_G$.
+
+=Gauge Potential:= If we expand out in a basis, we can write
+\[
+\nabla \theta_j = \sum_{ik} A_{ij}^k(x) \otimes e_i \otimes \theta_k.
+\]
+$A_{ij}^k(x)$ are the \textbf{gauge field} of the gauge connection
+
+=Covariant derivative:= 
+\begin{align*}
+D_\nabla f 
+&= \sum_{ij} \partial_j f_i \otimes e_j \otimes \theta_i + \sum_{ijk} f_i(x)  A_{ij}^k(x) \otimes e_j \otimes \theta_k.
+\end{align*}
+
+* Gauge Connections
+
+=Directional derivative:= 
+\begin{align*}
+\gen{v,D_\nabla f }_2
+&= \sum_{ij} v_j \partial_j f_i \otimes \theta_i + \sum_{ijk} v_j f_i(x)  A_{ij}^k(x) \otimes \theta_k.
+\end{align*}
+
+
+** (Hopf-Frobenius) Yang-Mills Theory
+
+We model these theories  with a collection of Hopf-Frobenius modules
+
+#+LaTeX: {\renewcommand{\arraystretch}{2.0}
+#+ATTR_LATEX: :environment tabularx :width \textwidth :align XXX
+|           | Frobenius                     | Hopf                                           |
+| Fields    | $\mathcal{S}(\mathbb{C}^{N})$ | $U[\operatorname{Der}]$                        |
+| Spacetime | $(\mathbb{R}^{4}, \eta)$      | $\mathbb{R} \Lambda$                           |
+| Gauge     | $\mathbb{C}^N$                | $\mathbb{R}SU(N)$, $N > 1$ or $\mathbb{R}U(1)$ |
+#+LaTeX: }

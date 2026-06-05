@@ -56,9 +56,14 @@ In the case that $\otimes$ distributes over /all small coproducts/
 \mathcal{O}^{\mathcal{C}}[\bar{A}_{\bar{\alpha}} \mid B_{\beta}] = \coprod_{f^i: A^i \to B} \mathcal{O}[\bar{\alpha} \mid \beta]
 \]
 \bigskip
-Similarly,
+
+Similarly, there's a more involved properadic version
 \[
-\mathcal{P}^{\mathcal{C}}[\bar{A}_{\bar{\alpha}} \mid B_{\bar{\beta}}] = \coprod_{f^i: A^i \to B} \mathcal{P}[\bar{\alpha} \mid \beta]
+\mathcal{P}^{\mathcal{C}}[\bar{A}_{\bar{\alpha}} \mid \bar{B}_{\bar{\beta}}] = \coprod_{\text{Alternating chains}} \mathcal{P}[\bar{\alpha} \mid \bar{\beta}]
+\]
+
+\[
+A \to B \rightrightarrows C_{i} \to D \rightrightarrows \ldots \to Z
 \]
 
 * Precursors
@@ -115,8 +120,13 @@ whenever $f \perp g$.
 
 * Introducing Homotopy
 
-- Homotopy allows us to capture gauge theories
-- Most common approaches: bar-cobar (ex. chain complexes), W-construction
+To handle gauge theories we need homotopy:
+- BV-BRST formalism
+- Aharonov-Bohm effect (Wilson loops are non-local)
+
+\bigskip
+
+We can't expect causality to hold strictly
 
 \bigskip
 
@@ -131,6 +141,8 @@ W(\operatorname{Assoc}^{\mathcal{C}})
 
 * Pointwise A_{\infty}-algebras
 
+** Homotopy QFT
+
 Picking out a monoid at any point in the category $\mathcal{C}$
 \[
 \operatorname{Assoc} \to \mathcal{O}^{\mathcal{C}}
@@ -139,15 +151,20 @@ induces an adjunction
 \[
 \operatorname{Alg}(\operatorname{Assoc}_{\infty}) \rightleftarrows \operatorname{Alg}(W(\mathcal{\operatorname{Assoc}}^{\mathcal{C}})),
 \]
-which picks out the corresponding $A_{\infty}$-algebra at that object.
 
-* Pointwise A_{\infty}-algebras 
+\bigskip 
+
+which picks out the corresponding A_{\infty}-algebra at that object.
+
+* Alternatives
 
 Using the $\mathcal{O}^{\mathcal{C}}$ construction, we can create a model for AQFTs of the form
 \[
 \operatorname{Assoc}_{\infty}^{{\mathcal{C}}}.
 \]
 This gives us finer control over the homotopy /in the algebras/.
+
+- This is an easier model to perform computations in
 
 \bigskip
 

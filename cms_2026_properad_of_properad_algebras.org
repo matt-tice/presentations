@@ -33,13 +33,13 @@ F: \mathcal{C} \to \mathcal{P}\text{-Alg}.
 
 * Generators and Relations
 
-\newthought{Between objects in $\mathcal{C}$: }
+@@latex:\newthought{Between objects in $\mathcal{C}$: }@@
 \[
 \mathcal{O}^{\mathcal{C}}_{\text{gen}}[A_{\alpha} \mid B_{\alpha}] = \bigsqcup_{f: A \to B} I
 \]
 when $A \ne B$.
 
-\newthought{Copies of $\mathcal{O}^{\mathcal{C}}$: }
+@@latex:\newthought{Copies of $\mathcal{O}^{\mathcal{C}}$: }@@
 \[
 \mathcal{O}^{\mathcal{C}}_{\text{gen}}[A_{\alpha_{1}} \ldots A_{\alpha_{n}} \mid A_{\beta}] = \mathcal{O}[\alpha_{1} \ldots \alpha_{n}]
 \]
@@ -49,11 +49,16 @@ when $A \ne B$.
 \]
 
 
-* Explicit Form (infinitary distributivity)
+* TODO Explicit Form (infinitary distributivity)
 
 In the case that $\otimes$ distributes over /all small coproducts/
 \[
 \mathcal{O}^{\mathcal{C}}[\bar{A}_{\bar{\alpha}} \mid B_{\beta}] = \coprod_{f^i: A^i \to B} \mathcal{O}[\bar{\alpha} \mid \beta]
+\]
+\bigskip
+Similarly,
+\[
+\mathcal{P}^{\mathcal{C}}[\bar{A}_{\bar{\alpha}} \mid B_{\bar{\beta}}] = \coprod_{f^i: A^i \to B} \mathcal{P}[\bar{\alpha} \mid \beta]
 \]
 
 * Precursors
@@ -155,21 +160,19 @@ Structures like Hopf algebras, L_{\infty}-bialgebras, and quantum groups are /pr
 
 * Hopf-Laplace Algebras
 
-A /Hopf algebra/ is a unital associative $k$-algebra, $H$, with maps 
+A /bialgebra/ is a unital associative $k$-algebra, $B$, with maps 
 
 \medskip
 
-- \fbox{Comultiplication: } $\Delta: H \to H \otimes H$
+- \fbox{Comultiplication: } $\Delta: B \to B \otimes B$
 
-- \fbox{Counit: } $\varepsilon: H \to k$
-
-- \fbox{Antipode: } An involution $S: H \to H$
+- \fbox{Counit: } $\varepsilon: B \to k$
 
 \bigskip
 
 satisfying the appropriate compatibility conditions between the algebraic and coalgebraic structure.
 
-A /Laplace pairing/ on a Hopf algebra is a bilinear form $\gen{\cdot, \cdot}: H \otimes H \to k$ satisfying
+A /Laplace pairing/ on a bialgebra is a bilinear form $\gen{\cdot, \cdot}: B \otimes B \to k$ satisfying
 
 \[
 \gen{x, yz} = \sum \gen{x_{(1)}, y} \gen{x_{(2)}, z}

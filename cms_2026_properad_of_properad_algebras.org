@@ -25,7 +25,7 @@ F: \mathcal{C} \to \mathcal{O} \text{-Alg}.
 * Main Results (Properad Version)
 
 \begin{proposition}{Properad of Properad Algebras}{prop-of-prop-algs}
-Let $\mathcal{P}$ be a coloured properad in a closed monoidal category with all small coproducts $\mathcal{V}$, where the monodial product distributes over all \emph{finite} coproducts. For any small category $\mathcal{C}$, there exists a properad $\mathcal{P}^{\mathcal{C}}$ whose algebras are the functors
+Let $\mathcal{P}$ be a coloured properad in a symmetric monoidal category with all small coproducts $\mathcal{V}$, where the monodial product distributes over all \emph{finite} coproducts. For any small category $\mathcal{C}$, there exists a properad $\mathcal{P}^{\mathcal{C}}$ whose algebras are the functors
 \begin{equation*}
 F: \mathcal{C} \to \mathcal{P}\text{-Alg}.
 \end{equation*}
@@ -49,7 +49,7 @@ when $A \ne B$.
 \]
 
 
-* TODO Explicit Form (infinitary distributivity)
+* Explicit Form (infinite distributivity)
 
 In the case that $\otimes$ distributes over /all small coproducts/
 \[
@@ -63,7 +63,7 @@ Similarly, there's a more involved properadic version
 \]
 
 \[
-A \to B \rightrightarrows C_{i} \to D \rightrightarrows \ldots \to Z
+A^{^{i}} \to X_{1} \to Y^{j} \to X_{2} \to Y^{k} \to \ldots \to B^{m}
 \]
 
 * Precursors
@@ -132,8 +132,10 @@ We can't expect causality to hold strictly
 
 ** Homotopy Quantum Field Theory, Yau (2019)
 
+\medskip
 
 - Wraps the entire QFT in homotopy:
+
 \[
 W(\operatorname{Assoc}^{\mathcal{C}})
 \]
@@ -164,7 +166,7 @@ Using the $\mathcal{O}^{\mathcal{C}}$ construction, we can create a model for AQ
 \]
 This gives us finer control over the homotopy /in the algebras/.
 
-- This is an easier model to perform computations in
+- This is an easier model for performing computations
 
 \bigskip
 

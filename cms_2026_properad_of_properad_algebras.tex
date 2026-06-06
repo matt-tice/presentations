@@ -1,4 +1,4 @@
-% Created 2026-06-05 Fri 17:33
+% Created 2026-06-06 Sat 00:03
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -29,7 +29,7 @@
 \begin{document}
 
 \maketitle
-\begin{frame}[label={sec:org2bbcbda}]{Main Results}
+\begin{frame}[label={sec:org76bac06}]{Main Results}
 \begin{proposition}{The Operad of Operad Algebras}{operad-of-operad-alg-gen}
 Let $\mathcal{V}$ be a symmetric monoidal category with all small coproducts such that the monoidal product distributes over all \emph{finite} coproducts, and let $\mathcal{O}$ be a coloured operad in $\mathcal{V}$. Then for any small category, $\mathcal{C}$, there exists an operad $\mathcal{O}^{\mathcal{C}}$ in $\mathcal{V}$ whose algebras are the functors 
 \begin{equation*}
@@ -37,15 +37,15 @@ F: \mathcal{C} \to \mathcal{O} \text{-Alg}.
 \end{equation*}
 \end{proposition}
 \end{frame}
-\begin{frame}[label={sec:org1908d41}]{Main Results (Properad Version)}
+\begin{frame}[label={sec:org55250ed}]{Main Results (Properad Version)}
 \begin{proposition}{Properad of Properad Algebras}{prop-of-prop-algs}
-Let $\mathcal{P}$ be a coloured properad in a closed monoidal category with all small coproducts $\mathcal{V}$, where the monodial product distributes over all \emph{finite} coproducts. For any small category $\mathcal{C}$, there exists a properad $\mathcal{P}^{\mathcal{C}}$ whose algebras are the functors
+Let $\mathcal{P}$ be a coloured properad in a symmetric monoidal category with all small coproducts $\mathcal{V}$, where the monodial product distributes over all \emph{finite} coproducts. For any small category $\mathcal{C}$, there exists a properad $\mathcal{P}^{\mathcal{C}}$ whose algebras are the functors
 \begin{equation*}
 F: \mathcal{C} \to \mathcal{P}\text{-Alg}.
 \end{equation*}
 \end{proposition}
 \end{frame}
-\begin{frame}[label={sec:orgbd9da24},fragile]{Generators and Relations}
+\begin{frame}[label={sec:orge55537a},fragile]{Generators and Relations}
  \newthought{Between objects in $\mathcal{C}$: }
 \[
 \mathcal{O}^{\mathcal{C}}_{\text{gen}}[A_{\alpha} \mid B_{\alpha}] = \bigsqcup_{f: A \to B} I
@@ -61,7 +61,7 @@ when \(A \ne B\).
 \mathcal{O}^{\mathcal{C}}_{\text{gen}}[A_{\alpha} \mid A_{\alpha}] = \mathcal{O}[\alpha \mid \alpha] \sqcup \bigsqcup_{f: A \to A} I
 \]
 \end{frame}
-\begin{frame}[label={sec:org4c6acf1}]{Explicit Form (infinitary distributivity)}
+\begin{frame}[label={sec:org6ddaed5}]{Explicit Form (infinite distributivity)}
 In the case that \(\otimes\) distributes over \emph{all small coproducts}
 \[
 \mathcal{O}^{\mathcal{C}}[\bar{A}_{\bar{\alpha}} \mid B_{\beta}] = \coprod_{f^i: A^i \to B} \mathcal{O}[\bar{\alpha} \mid \beta]
@@ -74,10 +74,10 @@ Similarly, there's a more involved properadic version
 \]
 
 \[
-A \to B \rightrightarrows C_{i} \to D \rightrightarrows \ldots \to Z
+A^{^{i}} \to X_{1} \to Y^{j} \to X_{2} \to Y^{k} \to \ldots \to B^{m}
 \]
 \end{frame}
-\begin{frame}[label={sec:orgcb80933}]{Precursors}
+\begin{frame}[label={sec:orgbca468b}]{Precursors}
 \begin{block}{\emph{Coloured Operads}, Yau (2017)}
 \begin{itemize}
 \item The construction of \(\mathcal{O}^{\mathcal{C}}\) is left as an exercise.
@@ -94,7 +94,7 @@ A \to B \rightrightarrows C_{i} \to D \rightrightarrows \ldots \to Z
 \]
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:org6cfde49},fragile]{Orthogonal Categories}
+\begin{frame}[label={sec:org1240079},fragile]{Orthogonal Categories}
  \begin{block}{Definition}
 Let \(\mathcal{C}\) be a small category. An \emph{orthogonality relation} \(\perp\) on \(\mathcal{C}\) is a relation on pairs of morphisms in \(\mathcal{C}\) such that if \(f \perp g\)
 then \(f\) and \(g\) have the \emph{same codomain}, and are required to satisfy
@@ -113,7 +113,7 @@ An \emph{orthogonal category} is a small category \(\mathcal{C}\) with an orthog
 \newthought{Intuition: } \(f \perp g\) means that the regions corresponding to \(f\) and \(g\) are \emph{causally disjoint}
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:org9eb05e9}]{Causality}
+\begin{frame}[label={sec:orgdc1242b}]{Causality}
 In order to be a physical theory, an AQFT must satisfy the \emph{causality condition}:
 
 \begin{center}
@@ -127,7 +127,7 @@ F(C) \otimes F(C) \arrow[rr, swap, "\mu"]  \& \& F(C)
 
 whenever \(f \perp g\).
 \end{frame}
-\begin{frame}[label={sec:orge8eb1b8}]{Introducing Homotopy}
+\begin{frame}[label={sec:orga817759}]{Introducing Homotopy}
 To handle gauge theories we need homotopy:
 \begin{itemize}
 \item BV-BRST formalism
@@ -140,15 +140,18 @@ We can't expect causality to hold strictly
 
 \bigskip
 \begin{block}{Homotopy Quantum Field Theory, Yau (2019)}
+\medskip
+
 \begin{itemize}
 \item Wraps the entire QFT in homotopy:
 \end{itemize}
+
 \[
 W(\operatorname{Assoc}^{\mathcal{C}})
 \]
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:org8f89d3b}]{Pointwise A\textsubscript{\(\infty\)}-algebras}
+\begin{frame}[label={sec:org678e101}]{Pointwise A\textsubscript{\(\infty\)}-algebras}
 \begin{block}{Homotopy QFT}
 Picking out a monoid at any point in the category \(\mathcal{C}\)
 \[
@@ -164,7 +167,7 @@ induces an adjunction
 which picks out the corresponding A\textsubscript{\(\infty\)}-algebra at that object.
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:orgad321a8}]{Alternatives}
+\begin{frame}[label={sec:orgda889de}]{Alternatives}
 Using the \(\mathcal{O}^{\mathcal{C}}\) construction, we can create a model for AQFTs of the form
 \[
 \operatorname{Assoc}_{\infty}^{{\mathcal{C}}}.
@@ -172,7 +175,7 @@ Using the \(\mathcal{O}^{\mathcal{C}}\) construction, we can create a model for 
 This gives us finer control over the homotopy \emph{in the algebras}.
 
 \begin{itemize}
-\item This is an easier model to perform computations in
+\item This is an easier model for performing computations
 \end{itemize}
 
 \bigskip
@@ -187,7 +190,7 @@ Structures like Hopf algebras, L\textsubscript{\(\infty\)}-bialgebras, and quant
 \end{itemize}
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:org8d529b6},fragile]{Hopf-Laplace Algebras}
+\begin{frame}[label={sec:org447bf1d},fragile]{Hopf-Laplace Algebras}
  A \emph{bialgebra} is a unital associative \$k\$-algebra, \(B\), with maps 
 
 \medskip
@@ -216,7 +219,7 @@ A \emph{Laplace pairing} on a bialgebra is a bilinear form \(\gen{\cdot, \cdot}:
 
 \newthought{Intuition: } Laplace pairings behave like \emph{correlation functions} from quantum field theory!
 \end{frame}
-\begin{frame}[label={sec:org0274385}]{Properad of Laplace Hopf AQFTs}
+\begin{frame}[label={sec:org0338129}]{Properad of Laplace Hopf AQFTs}
 Let \((\mathcal{C}, \perp)\) be an orthogonal category. A \emph{Laplace Hopf algebraic quantum field theory} is a functor
 \begin{align*}
 F: \mathcal{C} \to \mathcal{LB}(\mathcal{V})
